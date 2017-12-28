@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+var passport = require('passport');
+var bcrypt = require('bcrypt-nodejs');
+var session = require('express-session');
 
 var index = require('./server/routes/index');
 var users = require('./server/routes/users');
@@ -27,10 +30,28 @@ app.use(sassMiddleware({
     indentedSyntax: true, // true = .sass and false = .scss
     sourceMap: true
 }));
+//section use
+
+app.use(session({
+    secret: 'secretkeywon',
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 // 쿠키 유효기간 1시간
+    }
+}));
+
+//passport initialize
+//app.use(passport.initialize());
+//login section foreever
+//app.use(passport.sessioin());
+//flash message 
+//app.use(flash());
+
 //file path register
-app.use('/static', express.static(path.join(__dirname, 'public')));
-//public file url /static
 app.use('/upload', express.static(path.join(__dirname, 'upload')));
+//public file url /static
+app.use('/static', express.static(path.join(__dirname, 'public')));
 //image file path
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
