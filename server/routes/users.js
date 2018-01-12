@@ -3,11 +3,27 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-    res.send('respond with a resource');
+    res.redirect('/');
+});
+
+router.get('/login', function(req, res, next) {
+    res.render('/pages/user/login');
+});
+
+router.post('/login', function(req, res, next) {
+
+});
+
+router.get('/logout', function(req, res, next) {
+
+});
+
+router.post('/logout', function(req, res, next) {
+
 });
 
 router.get('/registe', function(req, res, next) {
-
+    res.render('/pages/user/registe');
 });
 
 router.post('/registe', function(req, res, next) {
@@ -15,7 +31,7 @@ router.post('/registe', function(req, res, next) {
 });
 
 router.get('/profile', function(req, res, next) {
-
+    res.render('/pages/user/profile');
 });
 
 router.post('/profile', function(req, res, next) {
@@ -23,7 +39,7 @@ router.post('/profile', function(req, res, next) {
 });
 
 router.get('/modify', function(req, res, next) {
-
+    res.render('/pages/user/modify');
 });
 
 router.post('/modify', function(req, res, next) {
@@ -31,7 +47,7 @@ router.post('/modify', function(req, res, next) {
 });
 
 router.get('/delete', function(req, res, next) {
-
+    res.render('/pages/user/delete');
 });
 
 router.post('/delete', function(req, res, next) {
