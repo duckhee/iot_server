@@ -19,3 +19,9 @@ router.get('/ajax', function(req, res, next) {
     var apikey = req.query.apikey || req.params.apikey;
 
 });
+
+router.get('/ajax', function(req, res, next) {
+    var user_id = req.query.user_id || req.params.user_id;
+    var apikey = req.query.apikey || req.params.apikey;
+
+});
