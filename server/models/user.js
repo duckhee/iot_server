@@ -4,16 +4,29 @@ module.exports = function(sequelize, DataTypes) {
         userid: {
             type: DataTypes.STRING,
             unique: true,
+            allowNull: false,
         },
-        password: DataTypes.STRING,
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         username: DataTypes.STRING,
         userage: DataTypes.INTEGER,
         user_address1: DataTypes.STRING,
         user_address2: DataTypes.STRING,
         zip_code: DataTypes.STRING,
-        user_phone1: DataTypes.INTEGER,
-        usre_phone2: DataTypes.INTEGER,
-        user_phone3: DataTypes.INTEGER
+        user_phone1: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        usre_phone2: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        user_phone3: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     }, {
         classMethods: {
             associate: function(models) {

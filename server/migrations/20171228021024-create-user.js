@@ -11,12 +11,15 @@ module.exports = {
             userid: {
                 type: Sequelize.STRING,
                 unique: true,
+                allowNull: false,
             },
             password: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                allowNull: false,
             },
             username: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                allowNull: false,
             },
             userage: {
                 type: Sequelize.INTEGER
@@ -31,13 +34,16 @@ module.exports = {
                 type: Sequelize.STRING
             },
             user_phone1: {
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                allowNull: false,
             },
             usre_phone2: {
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                allowNull: false,
             },
             user_phone3: {
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                allowNull: false,
             },
             createdAt: {
                 allowNull: false,
