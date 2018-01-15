@@ -7,3 +7,5 @@ var bCrypt = require('bcrypt-nodejs');
 router.get('/', function(req, res, next) {
 
 });
+
+module.exports = router;

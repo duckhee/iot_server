@@ -26,3 +26,5 @@ router.get('/ajax', function(req, res, next) {
     var apikey = req.query.apikey || req.params.apikey;
 
 });
+
+module.exports = router;

@@ -9,13 +9,18 @@ var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var session = require('express-session');
 
+//router
 var index = require('./server/routes/index');
 var users = require('./server/routes/users');
+var boarders = require('./server/routes/boarder');
+var devices = require('./server/routes/device');
+var datas = require('./server/routes/data');
+
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, '/server/views'));
+app.set('views', path.join(__dirname, 'server/views'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -57,6 +62,9 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/boards', boarders);
+app.use('/device', devices);
+app.use('/data', datas);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

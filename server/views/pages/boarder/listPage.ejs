@@ -3,9 +3,9 @@
 
 <head>
     <title>welcome Test IOF</title>
-    <% include ../partials/stylesheet.ejs %>
-    <% include ../partials/header_javascript.ejs %>
-    <% include ../partials/weather_config.ejs %>
+    <% include ../../partials/stylesheet.ejs %>
+    <% include ../../partials/header_javascript.ejs %>
+    <% include ../../partials/weather_config.ejs %>
 </head>
 
 
@@ -54,123 +54,71 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>
-                        Show <small>Serial</small>
-                    </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><i class="ffa fa-dshboard"></i>address</li>
-                        <li class="active"><a href="/">serial</a></li>
-                    </ol>
-                </section>
-                <div class="content">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box box-primary">
-                                <div class="box-header with-dorder">
-                                    <i class="fa fa-fw fa-download"></i>
-                                    <h3 class="box-title">Sensor or Picture Down Load</h3>
-                                </div>
-                                <div class="box-body">
-                                <p> click button download.</p>
-                                <form action="/process/download_csv?serial_Num=<%=serial_Num%>" method="post">
-                                    <button type="submit" class="btn btn-block btn-success" name="sensor_download" id="sensor_download"><i class="fa fa-fw fa-download"></i>Sensor Data Download</button>
-                                </form>
-                                <form action="/process/download_zip?serial_Num=<%=serial_Num%>" method="post">
-                                    <button type="submit" class="btn btn-block btn-danger" name="image_download" id="image_download"><i class="fa fa-fw fa-download"></i>Picture Data Download</button>
-                                </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                        <!-- download button group -->
-                    <div class="row">
-                        <!-- <div class="col-xs-12"> -->
-                        <div class = "col-md-6">
-                            <!-- Line chart -->
-                            <div class="box box-primary">
-                                <div class="box-header with-border">
-                                    <i class="fa fa-bar-chart-o"></i>
-                                    <h3 class="box-title">EC Value (dS/m ECe) 
-                                            </h3><div class="box-tools pull-right"><%= str %></div>     
-                                    <!--<button class="pull-right" id="value_download" name="value_download"><i class="fa fa-fw fa-download"></i>download</button>-->
-                                </div>
-                                <div class="box-body">                                    
-                                    <div id="ec-chartLegend" ></div>
-                                    <div id="ec-chart" style="height: 300px;"></div>    
-                                </div>
-                                <!-- /.box-body-->
-                            </div>
-                            <!-- /.box -->
-                        </div>
-                        <!-- chart end -->
-                        <div class = "col-md-6">
-                            <!-- Line chart -->
-                            <div class="box box-primary">
-                                <div class="box-header with-border">
-                                    <i class="fa fa-bar-chart-o"></i>
-                                    <h3 class="box-title">Temperature Value (degC) 
-                                           </h3><div class="box-tools pull-right"><%= str %></div>                                    
-                                    <!-- <button class="pull-right" id="value_download" name="value_download"><i class="fa fa-fw fa-download"></i>download</button> -->
-                                </div>
+               <section class="content">
+	<div class="row">
+		<!-- left column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class='box'>
+				<div class="box-header with-border">
+					<h3 class="box-title">Board List</h3>
+				</div>
+				<div class='box-body'>
+					<!-- 추가  -->
+					<select name="searchType" id="searchType">
+						<option value="title">제목</option>
+						<option value="writer">작성자</option>
+					</select> 
+					<input type="text" name='searchKeyword' id="searchKeyword">
+					<button id='searchBtn'><i class="fa fa-fw fa-search"></i>Search</button>
+					<!-- 기존 -->
+					<button id='newBtn'>New Board</button>
+				</div>
+				
+				
+				
+			</div>
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">LIST PAGING</h3>
+				</div>
+				<div class="box-body">
+					<table class="table table-bordered">
+						<tr>
+							<th style="width: 10px">BNO</th>
+							<th>TITLE</th>
+							<th>WRITER</th>
+							<th>REGDATE</th>
+							<th style="width: 40px">VIEWCNT</th>
+						</tr>
+						
+						<tbody id="tbody">
+						
 
-                                <div class="box-body">
-                                    <div id="temp-chartLegend" ></div>
-                                    <div id="temp-chart" style="height: 300px;"></div>
-                                </div>
-                                <!-- /.box-body-->
-                            </div>
-                            <!-- /.box -->
-                        </div>
-                        <!-- chart end -->
-                        <div class = "col-md-6">
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><span class="badge bg-red"></span></td>
+							</tr>
 
-                            <!-- Line chart -->
-                            <div class="box box-primary">
-                                <div class="box-header with-border">
-                                    <i class="fa fa-bar-chart-o"></i>
-                                    <h3 class="box-title">Moisture Value (%VWC)
-                                            </h3><div class="box-tools pull-right"><%= str %></div>     
-                                    <!--<button class="pull-right" id="value_download" name="value_download"><i class="fa fa-fw fa-download"></i>download</button> -->
-                                </div>
-                                <div class="box-body">
-                                    <div id="moist-chartLegend" ></div>
-                                    <div id="moist-chart" style="height: 300px;"></div>
+						
+						</tbody>
+					</table>
+				</div>
+				<!-- /.box-body -->
 
-                                </div>
-                                <!-- /.box-body-->
-                            </div>
-                            <!-- /.box -->
-                        </div>
-                        <!-- chart end -->
-                    <!--</div>
 
-                    <div class="row"> -->
-                        <div class="col-md-6">
-                            <div class="box box-primary">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">최근 촬영 사진</h3>
-                                    <div class="box-tools pull-right" id="camera-date"  style="height:300px">
-                                        
-                                    </div>
-                                </div>
-                                <!-- /.box-header -->
-                                <div class="box-body">
-                                    <div id="camera-info">
-                                        <img style="height:300px"></img>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- / camera infomation -->
-                    <!-- infomation -->
-                    <!-- /.weather, camera widget -->
-                </div>
+				<div class="box-footer">
+
+					<div class="text-center">
+						<ul class="pagination">
+						</ul>
+					</section>
+               <!-- Conten end -->
             </div>
-        <% include ../partials/footer.ejs %>
+        <% include ../../partials/footer.ejs %>
             <div class="control-sidebar-bg"></div>
         </div>
         <!-- /.content-wrapper -->
@@ -179,6 +127,6 @@
             <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
     </div>
-    <% include ../partials/footer_graph_javascript.ejs %>
+    <% include ../../partials/footer_graph_javascript.ejs %>
   </body>
 </html>
