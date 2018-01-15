@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/login', function(req, res, next) {
-    res.render('/user/login_page');
+    res.render('user/login_page');
 });
 
 router.post('/login', function(req, res, next) {
@@ -27,7 +27,7 @@ router.post('/logout', function(req, res, next) {
 });
 
 router.get('/registe', function(req, res, next) {
-    res.render('/user/registe_page');
+    res.render('user/registe_page');
 });
 
 router.post('/registe', function(req, res, next) {
@@ -35,7 +35,7 @@ router.post('/registe', function(req, res, next) {
 });
 
 router.get('/profile', function(req, res, next) {
-    res.render('/user/profilePage');
+    res.render('user/profilePage');
 });
 
 router.post('/profile', function(req, res, next) {
@@ -43,7 +43,7 @@ router.post('/profile', function(req, res, next) {
 });
 
 router.get('/modify', function(req, res, next) {
-    res.render('/user/modify');
+    res.render('user/modify');
 });
 
 router.post('/modify', function(req, res, next) {
@@ -51,7 +51,7 @@ router.post('/modify', function(req, res, next) {
 });
 
 router.get('/delete', function(req, res, next) {
-    res.render('/user/delete');
+    res.render('user/delete');
 });
 
 router.post('/delete', function(req, res, next) {
