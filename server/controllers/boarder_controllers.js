@@ -16,6 +16,19 @@ exports.insert_board = function(board_info, callback) {
     });
 };
 
+exports.all_list_board = function(board_info, callback) {
+    models.tbl_board.findAll({
+
+    }).then(function(rows) {
+        console.log('success');
+        console.log('tbl board list : ', rows);
+        callback(rows, null);
+    }).catch(function(err) {
+        console.log('failed...');
+        console.log('tbl list error : ', err);
+        callback(null, err);
+    })
+}
 exports.list_board = function(board_info, callback) {
     models.tbl_board.findAll({
         where: {
