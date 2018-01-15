@@ -20,6 +20,9 @@
             </span>
         </a>
         <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i>registe</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>show chart</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i>show iamge</a></li>
             <%   if (locals.devices) {                     
                          var myObj = JSON.parse(devices);                       
                         for(var i=0; i < myObj.length; i++){ 
@@ -29,18 +32,14 @@
                             }
             %>    
                 <li class="<%= class_active %>">
-                    <a href="/?serial_Num=<%=myObj[i].st_serial%>"><i class="fa fa-circle-o"></i><%= myObj[i].st_serial %></a>
+                    <a href="/?serial_Num=<%=myObj[i].st_serial%>"><i class="fa fa-circle-o"></i>detail <%= myObj[i].st_serial %></a>
                 </li>
             <%         
                      } 
                     }else{
-                        
+
                     }
             %>    
-                    <!-- <li><a href="/channel/create"><i class="fa fa-circle-o"></i>create channel</a></li>
-            <li><a href="/channel/show_setting"><i class="fa fa-circle-o"></i>channel setting</a></li>
-            <li><a href="/channel/detail"><i class="fa fa-circle-o"></i>show channel</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li> -->
         </ul>
     </li>
       <li class="active treeview">
