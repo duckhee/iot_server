@@ -53,12 +53,12 @@ app.use(session({
 //flash message 
 //app.use(flash());
 
-//file path register
-app.use('/upload', express.static(path.join(__dirname, 'upload')));
 //public file url /static
 app.use('/static', express.static(path.join(__dirname, 'public')));
 //image file path
 app.use('/images', express.static(path.join(__dirname, 'images')));
+//file path register
+app.use('/upload', express.static(path.join(__dirname, 'upload')));
 
 app.use('/', index);
 app.use('/users', users);
