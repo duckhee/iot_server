@@ -1,5 +1,5 @@
 var models = requrie('../models/index.js');
-var board = require('../models/tbl_board');
+var tbl_board = require('../models/tbl_board');
 
 /**
  *  boarder create and list, find, destory, search
@@ -7,7 +7,7 @@ var board = require('../models/tbl_board');
  */
 
 exports.insert_board = function(board_info, callback) {
-    models.board.findOrCreate({
+    models.tbl_board.findOrCreate({
 
     }).then(function(row) {
 
@@ -17,7 +17,7 @@ exports.insert_board = function(board_info, callback) {
 };
 
 exports.list_board = function(board_info, callback) {
-    models.board.findAll({
+    models.tbl_board.findAll({
         where: {
 
         }
@@ -29,7 +29,7 @@ exports.list_board = function(board_info, callback) {
 };
 
 exports.destory_board = function(board_info, callback) {
-    models.board.destroy({
+    models.tbl_board.destroy({
         where: {
 
         }
@@ -41,7 +41,7 @@ exports.destory_board = function(board_info, callback) {
 };
 
 exports.search_board = function(board_info, callback) {
-    models.board.find({
+    models.tbl_board.find({
         where: {
 
         }
@@ -53,7 +53,7 @@ exports.search_board = function(board_info, callback) {
 };
 
 exports.search_list_board = function(board_info, callback) {
-    models.board.findAll({
+    models.tbl_board.findAll({
         where: {
 
         }

@@ -1,5 +1,5 @@
-var model = require('../models/index');
-var User = require('../models/user');
+var models = require('../models/index');
+var user = require('../models/user');
 
 /*
     create user 
@@ -9,7 +9,7 @@ var User = require('../models/user');
 */
 //insert user
 exports.insert_user = function(user_info, callback) {
-        model.User.create({
+        models.user.create({
             userid: user_info.userid,
             password: user_info.password,
             username: user_info.username,
@@ -30,7 +30,7 @@ exports.insert_user = function(user_info, callback) {
     }
     //create user
 exports.create_user = function(user_info, callback) {
-    model.User.findOrCreate({
+    models.user.findOrCreate({
         where: {
             userid: user_info.userid
         },
@@ -55,7 +55,7 @@ exports.create_user = function(user_info, callback) {
 };
 //select user
 exports.select_one_user = function(user_info, callback) {
-    model.User.find({
+    models.user.find({
         where: {
             userid: user_info.userid
         }
@@ -69,7 +69,7 @@ exports.select_one_user = function(user_info, callback) {
 };
 //select list user
 exports.select_list_user = function(user_info, callback) {
-    models.User.findAll({
+    models.user.findAll({
         order: [
             ['createdAt', 'DESC']
         ]
@@ -84,7 +84,7 @@ exports.select_list_user = function(user_info, callback) {
 
 //modfiy user
 exports.modfiy_user = function(user_info, callback) {
-    model.User.update({}, {
+    models.user.update({}, {
         where: {
             userid: user_info.userid
         }
@@ -98,7 +98,7 @@ exports.modfiy_user = function(user_info, callback) {
 };
 //destory user
 exports.destory_user = function(user_info, callback) {
-    model.User.destroy({
+    models.user.destroy({
         where: {
             userid: user_info.userid
         }

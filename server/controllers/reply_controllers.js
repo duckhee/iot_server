@@ -1,5 +1,5 @@
-var index = require('../models/index.js');
-var reply = require('../models/tbl_reply');
+var models = require('../models/index.js');
+var tbl_reply = require('../models/tbl_reply');
 
 
 

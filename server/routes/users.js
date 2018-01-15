@@ -7,30 +7,6 @@ router.get('/', function(req, res, next) {
     res.redirect('/');
 });
 
-router.get('/test', function(req, res, next) {
-    var user_info = {
-        userid: 'fain9301',
-        password: 'won1228',
-        username: "duckhee",
-        userage: 27,
-        user_phone1: 010,
-        user_phone2: 7713,
-        user_phone3: 5036,
-        apikey: 'aetadsfate'
-    };
-    user_controller.create_user(user_info, function(row, err) {
-        if (row) {
-            console.log('sequelize row : ', row);
-            res.json(row);
-        } else if (err) {
-            console.log('sequelize error : ', err);
-            res.json(err);
-        } else {
-            console.log('null');
-            res.json('0');
-        }
-    });
-});
 
 router.get('/login', function(req, res, next) {
     res.render('/pages/user/login');

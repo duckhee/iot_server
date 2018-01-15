@@ -1,8 +1,8 @@
 var models = require('../models/index');
-var data = require('../models/device_data');
+var device_data = require('../models/device_data');
 
 exports.data_insert = function(data_info, callback) {
-    models.data.findOrCreate({
+    models.device_data.findOrCreate({
         where: {
 
         }
@@ -15,7 +15,7 @@ exports.data_insert = function(data_info, callback) {
 };
 
 exports.data_select = function(data_info, callback) {
-    models.data.find({
+    models.device_data.find({
         where: {
 
         }
@@ -27,7 +27,7 @@ exports.data_select = function(data_info, callback) {
 };
 
 exports.data_list = function(data_info, callback) {
-    models.data.findAll({
+    models.device_data.findAll({
         where: {
 
         },
