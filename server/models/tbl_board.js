@@ -3,7 +3,10 @@ module.exports = function(sequelize, DataTypes) {
     var tbl_board = sequelize.define('tbl_board', {
         title: DataTypes.STRING,
         content: DataTypes.TEXT,
-        writer: DataTypes.STRING,
+        writer: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         viewcnt: DataTypes.INTEGER
     }, {
         classMethods: {

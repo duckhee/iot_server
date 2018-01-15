@@ -45,6 +45,11 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 allowNull: false,
             },
+            apikey: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                unique: true
+            },
             status: {
                 type: Sequelize.ENUM('active', 'inactive'),
                 defaultValue: 'active'

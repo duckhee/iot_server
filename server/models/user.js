@@ -28,6 +28,11 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        apikey: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
         status: {
             type: Sequelize.ENUM('active', 'inactive'),
             defaultValue: 'active'

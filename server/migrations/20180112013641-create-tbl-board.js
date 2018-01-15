@@ -15,10 +15,13 @@ module.exports = {
                 type: Sequelize.TEXT
             },
             writer: {
-                type: Sequelize.STRING
+                type: DataTypes.STRING,
+                allowNull: false
             },
             viewcnt: {
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                default: 0
             },
             createdAt: {
                 allowNull: false,
