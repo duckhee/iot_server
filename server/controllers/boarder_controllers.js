@@ -1,5 +1,5 @@
 var models = requrie('../models/index.js');
-var board = require('../models/board');
+var board = require('../models/tbl_board');
 
 /**
  *  boarder create and list, find, destory, search
@@ -7,7 +7,9 @@ var board = require('../models/board');
  */
 
 exports.insert_board = function(board_info, callback) {
-    models.board.findOrCreate({}).then(function(row) {
+    models.board.findOrCreate({
+
+    }).then(function(row) {
 
     }).catch(function(e) {
 
@@ -60,4 +62,4 @@ exports.search_list_board = function(board_info, callback) {
     }).catch(function(e) {
 
     });
-}
+};
