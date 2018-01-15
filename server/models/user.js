@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
+            validate: { isEmail: true }
         },
         password: {
             type: DataTypes.STRING,
@@ -27,6 +28,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        status: { type: Sequelize.ENUM('active', 'inactive'), defaultValue: 'active' }
     }, {
         classMethods: {
             associate: function(models) {
