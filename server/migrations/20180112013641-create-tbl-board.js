@@ -15,7 +15,7 @@ module.exports = {
                 type: Sequelize.TEXT
             },
             writer: {
-                type: DataTypes.STRING,
+                type: Sequelize.STRING,
                 allowNull: false
             },
             viewcnt: {

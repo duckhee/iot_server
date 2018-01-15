@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
-            validate: { isId: true }
+            //validate: { isId: true }
         },
         password: {
             type: DataTypes.STRING,
@@ -34,7 +34,8 @@ module.exports = function(sequelize, DataTypes) {
             unique: true
         },
         status: {
-            type: Sequelize.ENUM('active', 'inactive'),
+            type: DataTypes.ENUM,
+            values: ['active', 'inactive'],
             defaultValue: 'active'
         }
     }, {

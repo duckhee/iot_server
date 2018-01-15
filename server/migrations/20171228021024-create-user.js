@@ -46,7 +46,7 @@ module.exports = {
                 allowNull: false,
             },
             apikey: {
-                type: DataTypes.STRING,
+                type: Sequelize.STRING,
                 allowNull: false,
                 unique: true
             },

@@ -1,10 +1,10 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
     var tbl_reply = sequelize.define('tbl_reply', {
-        bno: DataTypes.INTENGER,
+        bno: DataTypes.INTEGER,
         rwriter: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
         },
         rcontent: DataTypes.TEXT
     }, {

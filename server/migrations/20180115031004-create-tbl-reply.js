@@ -9,22 +9,24 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             bno: {
-                type: Sequelize.INTENGER
+                type: Sequelize.INTEGER
             },
             rwriter: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull: false,
             },
             rcontent: {
                 type: Sequelize.TEXT
             },
             createdAt: {
                 allowNull: false,
-                type: Sequelize.DATE
+                type: 'TIMESTAMP',
+                defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
             },
             updatedAt: {
                 allowNull: false,
-                type: Sequelize.DATE
+                type: 'TIMESTAMP',
+                defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
             }
         });
     },
