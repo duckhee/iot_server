@@ -3,11 +3,11 @@ var router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-    res.render('./pages/boarder/listPage');
+    res.render('/boarder/listPage');
 });
 
 router.get('/registe', function(req, res, next) {
-    res.render('/pages/boarder/registePage');
+    res.render('/boarder/registePage');
 });
 
 router.post('/process/registe', function(req, res, next) {
@@ -15,11 +15,11 @@ router.post('/process/registe', function(req, res, next) {
 });
 
 router.get('/list', function(req, res, next) {
-    res.render('/pages/boarder/listPage');
+    res.render('/boarder/listPage');
 });
 
 router.get('/detail', function(req, res, next) {
-    res.render('/pages/board/readPage');
+    res.render('/board/readPage');
 });
 
 router.post('/detail', function(req, res, next) {
