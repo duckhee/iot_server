@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var user_controller = require('../controllers/user_controllers');
+var bCrypt = require('bcrypt-nodejs');
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
