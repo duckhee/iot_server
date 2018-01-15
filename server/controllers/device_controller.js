@@ -58,4 +58,4 @@ exports.delete_device = function(device_info, callback) {
         console.log('error : ', err);
         callback(null, err);
     });
-}
+};
