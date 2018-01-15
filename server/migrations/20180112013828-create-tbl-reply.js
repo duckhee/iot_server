@@ -12,7 +12,7 @@ module.exports = {
                 type: Sequelize.INTENGER
             },
             rwriter: {
-                type: DataTypes.STRING,
+                type: Sequelize.STRING,
                 allowNull: false
             },
             rcontent: {

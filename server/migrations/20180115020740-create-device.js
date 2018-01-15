@@ -15,7 +15,7 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             device_apikey: {
-                type: Sequelize.model.User.apikey
+                type: Sequelize.STRING
             },
             createdAt: {
                 allowNull: false,

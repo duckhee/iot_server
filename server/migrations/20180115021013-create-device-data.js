@@ -9,7 +9,7 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             data_apikey: {
-                type: Sequelize.STRING.model.device.device_apikey
+                type: Sequelize.STRING
             },
             data_onevalue: {
                 type: Sequelize.STRING
