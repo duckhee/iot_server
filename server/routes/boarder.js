@@ -17,19 +17,21 @@ router.post('/process/registe', function(req, res, next) {
 
 router.get('/list', function(req, res, next) {
     board_controller.all_list_board(function(rows, err) {
-        if(rows){
+        if (rows) {
             console.log('rows length : ', rows.length);
-        if (rows.length === 0) {
-            console.log(rows);
-            res.render('boarder/emptylsitPage');
-        }else if(rows.length !== 0){
-            res.render('boarder/listPage', {
-                post: rows
-            });
-        }else{
-            res.redirect('/boards');
-        }
-        }else if (err) {
+            if (rows.length === 0) {
+                console.log('rows length : ', rows.length);
+                console.log(rows);
+                res.render('boarder/emptylistPage');
+            } else if (rows.length !== 0) {
+                console.log('not empty rows length : ', rows.length);
+                res.render('boarder/listPage', {
+                    post: rows
+                });
+            } else {
+                res.redirect('/boards');
+            }
+        } else if (err) {
             next(err);
         } else {
             res.redirect('/boards');
