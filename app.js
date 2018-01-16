@@ -47,9 +47,9 @@ app.use(session({
 }));
 
 //passport initialize
-//app.use(passport.initialize());
+app.use(passport.initialize());
 //login section foreever
-//app.use(passport.sessioin());
+app.use(passport.session());
 //flash message 
 //app.use(flash());
 
