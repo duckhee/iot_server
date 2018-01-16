@@ -59,6 +59,8 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
 //file path register
 app.use('/upload', express.static(path.join(__dirname, 'upload')));
+//file download
+app.use('/download', express.static(path.join(__dirname, 'download')));
 
 app.use('/', index);
 app.use('/users', users);
