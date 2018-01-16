@@ -1,4 +1,4 @@
-var models = requrie('../models/index.js');
+var models = require('../models/index.js');
 var tbl_board = require('../models/tbl_board');
 
 /**
