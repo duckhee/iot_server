@@ -93,16 +93,16 @@
 						</tr>
 						
 						<tbody id="tbody">
-						
+                        <% for(post of posts){ %>
 
 							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								<td><%= post.id%></td>
+								<td><%=post.title%></td>
+								<td><%=post.writer%></td>
+								<td><%=post.createdAt%></td>
 								<td><span class="badge bg-red"></span></td>
 							</tr>
-
+                        <% } %>
 						
 						</tbody>
 					</table>

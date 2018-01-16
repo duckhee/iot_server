@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var board_controller = require('../controllers/boarder_controllers');
 
 
 router.get('/', function(req, res, next) {
-    res.render('boarder/listPage');
+    res.redirect('/boards/list');
 });
 
 router.get('/registe', function(req, res, next) {
@@ -15,7 +16,15 @@ router.post('/process/registe', function(req, res, next) {
 });
 
 router.get('/list', function(req, res, next) {
-    res.render('boarder/listPage');
+    board_controller.all_list_board(function(rows, err) {
+        if (rows) {
+            res.render('boarder/listPage');
+        } else if (err) {
+            next(err);
+        } else {
+            res.redirect('/boards');
+        }
+    });
 });
 
 router.get('/detail', function(req, res, next) {

@@ -16,7 +16,7 @@ exports.insert_board = function(board_info, callback) {
     });
 };
 
-exports.all_list_board = function(board_info, callback) {
+exports.all_list_board = function(callback) {
     models.tbl_board.findAll({
 
     }).then(function(rows) {
