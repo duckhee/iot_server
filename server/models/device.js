@@ -14,6 +14,10 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate: function(models) {
                 // associations can be defined here
+                device.hasMany(models.device_data);
+                device.belongTo(models.user, {
+                    foreignKey: 'apikey'
+                });
             }
         }
     });
