@@ -7,9 +7,12 @@ exports.data_insert = function(data_info, callback) {
 
         }
     }).then(function(row) {
+        console.log('success');
+        console.log('data create : ', row);
         callback(row, null);
     }).catch(function(err) {
-        console.log('error : ', err);
+        console.log('failed...');
+        console.log('create error : ', err);
         callback(null, err);
     });
 };
@@ -20,8 +23,12 @@ exports.data_select = function(data_info, callback) {
 
         }
     }).then(function(row) {
+        console.log('success');
+        console.log('data find : ', row);
         callback(row, null);
     }).catch(function(err) {
+        console.log('failed...');
+        console.log('find error : ', err);
         callback(null, err);
     })
 };
@@ -36,8 +43,12 @@ exports.data_list = function(data_info, callback) {
             ['createdAt', 'DESC']
         ]
     }).then(function(rows) {
+        console.log('success');
+        console.log('data list : ', row);
         callback(rows, null);
     }).catch(function(err) {
+        console.log('failed...');
+        console.log('data list error : ', err);
         callback(null, err);
     });
 };

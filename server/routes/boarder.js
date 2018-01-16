@@ -18,7 +18,9 @@ router.post('/process/registe', function(req, res, next) {
 router.get('/list', function(req, res, next) {
     board_controller.all_list_board(function(rows, err) {
         if (rows) {
-            res.render('boarder/listPage');
+            res.render('boarder/listPage', {
+                post: rows
+            });
         } else if (err) {
             next(err);
         } else {
