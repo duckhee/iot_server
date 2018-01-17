@@ -19,6 +19,9 @@ module.exports = function(app) {
             content: content,
             writer: ''
         };
+        board_controller.insert_board(board_info, function(row, err) {
+
+        });
         res.redirect('/');
     });
 

@@ -68,10 +68,12 @@ app.use('/boards', boarders);
 app.use('/device', devices);
 app.use('/data', datas);
 
-var testing = require('./server/routes/boarder_test');
 
 //testing router 
+var testing = require('./server/routes/boarder_test');
 //testing(app);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

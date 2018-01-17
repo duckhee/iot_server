@@ -1,5 +1,6 @@
 var models = require('../models/index');
 var user = require('../models/user');
+var bCrypt = require('bcrypt-nodejs');
 
 /*
     create user 
@@ -30,6 +31,7 @@ exports.insert_user = function(user_info, callback) {
     }
     //create user
 exports.create_user = function(user_info, callback) {
+    var encodingpassword = bCrypt;
     models.user.findOrCreate({
         where: {
             userid: user_info.userid

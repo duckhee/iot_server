@@ -8,7 +8,22 @@ var tbl_board = require('../models/tbl_board');
 
 exports.insert_board = function(board_info, callback) {
     models.tbl_board.findOrCreate({
+        /*
+        where: {
 
+        },
+        */
+        include: [{
+            models: models.user.user_id,
+            where: {
+                user_id: req.session.user
+            }
+        }],
+        defaults: {
+            title: board_info.title,
+            content: board_info.content,
+            writer: board_info.user_id,
+        }
     }).then(function(row) {
         console.log('success');
         console.log('tbl board insert : ', row);
