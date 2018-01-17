@@ -71,7 +71,7 @@ app.use('/data', datas);
 
 //testing router 
 var testing = require('./server/routes/boarder_test');
-//testing(app);
+app.use('/test', testing(passport));
 
 
 

@@ -1,17 +1,18 @@
 var board_controller = require('../controllers/boarder_controllers');
+var express = require('express');
+var router = express.Router();
+module.exports = function(passport) {
 
-module.exports = function(app) {
 
-
-    app.get('/test', function(req, res, next) {
+    router.get('/test', function(req, res, next) {
         res.redirect('/boards/list');
     });
 
-    app.get('/test/registe', function(req, res, next) {
+    router.get('/test/registe', function(req, res, next) {
         res.render('boarder/registePage');
     });
 
-    app.post('/test/process/registe', function(req, res, next) {
+    router.post('/test/process/registe', function(req, res, next) {
         var title = req.body.title;
         var content = req.body.content;
         var board_info = {
@@ -25,7 +26,7 @@ module.exports = function(app) {
         res.redirect('/');
     });
 
-    app.get('/test/list', function(req, res, next) {
+    router.get('/test/list', function(req, res, next) {
         board_controller.all_list_board(function(rows, err) {
             if (rows) {
                 console.log('rows length : ', rows.length);
@@ -49,20 +50,21 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/test/detail', function(req, res, next) {
+    router.get('/test/detail', function(req, res, next) {
         res.render('board/readPage');
     });
 
-    app.post('/test/detail', function(req, res, next) {
+    router.post('/test/detail', function(req, res, next) {
         res.redirect('/');
     });
 
-    app.get('/test/reply', function(req, res, next) {
+    router.get('/test/reply', function(req, res, next) {
 
     });
 
-    app.post('/test/reply', function(req, res, next) {
+    router.post('/test/reply', function(req, res, next) {
 
     });
 
-}
+    return router;
+};
