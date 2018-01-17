@@ -53,7 +53,8 @@ exports.destory_board = function(board_info, callback) {
     models.tbl_board.destroy({
         where: {
 
-        }
+        },
+
     }).then(function(row) {
         console.log('success');
         console.log('destroy : ', row);

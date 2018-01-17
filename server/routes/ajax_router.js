@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+var data_controllers = require('../controllers/data_controllers');
+var device_controllers = require('../controllers/device_controller');
 
 //sequelize get 
 router.get('/ajax', function(req, res, next) {

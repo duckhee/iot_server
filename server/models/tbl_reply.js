@@ -12,7 +12,8 @@ module.exports = function(sequelize, DataTypes) {
             associate: function(models) {
                 // associations can be defined here
                 tbl_reply.belongTo(models.tbl_board, {
-                    foreignKey: 'title'
+                    foreignKey: 'title',
+                    allowNull: false
                 });
             }
         }

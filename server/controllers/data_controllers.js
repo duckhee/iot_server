@@ -5,7 +5,16 @@ exports.data_insert = function(data_info, callback) {
     models.device_data.findOrCreate({
         where: {
 
-        }
+        },
+        //join query if association not set up
+        /*
+        include: [{
+            models: '',
+            where: {
+
+            }
+        }]
+        */
     }).then(function(row) {
         console.log('success');
         console.log('data create : ', row);
