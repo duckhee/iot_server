@@ -12,6 +12,9 @@ router.get('/registe', function(req, res, next) {
 });
 
 router.post('/process/registe', function(req, res, next) {
+    var content = req.body.content;
+    var title = req.body.title;
+
     res.redirect('/');
 });
 
