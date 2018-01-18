@@ -8,7 +8,9 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER
         },
         device_apikey: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            references: 'user',
+            referencesKey: 'apikey'
         }
     }, {
         classMethods: {
