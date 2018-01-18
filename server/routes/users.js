@@ -36,7 +36,11 @@ router.post('/registe', function(req, res, next) {
     console.log('phone', req.body.phone);
     var create_apikey;
 
-    create_apikey = bCrypt.hashsync();
+
+
+    create_apikey = bCrypt.hashSync(req.body.id);
+
+    console.log('apikey : ', create_apikey);
 
     var phone = new Array;
     if (req.body.phone.indexOf('-') != -1) {
@@ -66,7 +70,7 @@ router.post('/registe', function(req, res, next) {
         user_phone1: phone[0],
         usre_phone2: phone[1],
         user_phone3: phone[2],
-        apikey: '',
+        apikey: create_apikey,
 
     };
 
