@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
-var passport = require('passport');
+//var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var session = require('express-session');
 
@@ -47,9 +47,9 @@ app.use(session({
 }));
 
 //passport initialize
-app.use(passport.initialize());
+//app.use(passport.initialize());
 //login section foreever
-app.use(passport.session());
+//app.use(passport.session());
 //flash message 
 //app.use(flash());
 
@@ -71,7 +71,7 @@ app.use('/data', datas);
 
 //testing router 
 var testing = require('./server/routes/boarder_test');
-app.use('/test', testing(passport));
+//app.use('/test', testing(passport));
 
 
 

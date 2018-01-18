@@ -40,15 +40,15 @@ module.exports = {
                 type: Sequelize.STRING
             },
             user_phone1: {
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING,
                 allowNull: false,
             },
-            usre_phone2: {
-                type: Sequelize.INTEGER,
+            user_phone2: {
+                type: Sequelize.STRING,
                 allowNull: false,
             },
             user_phone3: {
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING,
                 allowNull: false,
             },
             apikey: {

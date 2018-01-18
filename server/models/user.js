@@ -1,11 +1,14 @@
 'use strict';
+
+var bcrypt = require('bcrypt-nodejs');
+
 module.exports = function(sequelize, DataTypes) {
     var user = sequelize.define('user', {
         userid: {
             type: DataTypes.STRING,
             unique: true,
             allowNull: false,
-            validate: { isId: true }
+            //validate: { isId: true }
         },
         password: {
             type: DataTypes.STRING,
@@ -19,15 +22,15 @@ module.exports = function(sequelize, DataTypes) {
         user_address2: DataTypes.STRING,
         zip_code: DataTypes.STRING,
         user_phone1: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
-        usre_phone2: {
-            type: DataTypes.INTEGER,
+        user_phone2: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
         user_phone3: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         apikey: {
@@ -51,7 +54,7 @@ module.exports = function(sequelize, DataTypes) {
         },
 
     });
-
+    //insert before 
     user.hook("beforeCreate", function(user) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
         console.log('bdforeCreate hook >>>>>>>>', user.password);

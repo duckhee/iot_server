@@ -40,12 +40,15 @@ exports.create_user = function(user_info, callback) {
             password: user_info.password,
             username: user_info.username,
             userage: user_info.userage,
+            user_email: user_info.user_email,
+            user_country: user_info.user_country,
             user_address1: user_info.user_address1,
             user_address2: user_info.user_address2,
             zip_code: user_info.zip_code,
             user_phone1: user_info.user_phone1,
             user_phone2: user_info.user_phone2,
             user_phone3: user_info.user_phone3,
+            apikey: user_info.apikey
         }
     }).then(function(row) {
         console.log('success');

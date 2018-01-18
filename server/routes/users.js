@@ -36,8 +36,6 @@ router.post('/registe', function(req, res, next) {
     console.log('phone', req.body.phone);
     var create_apikey;
 
-
-
     create_apikey = bCrypt.hashSync(req.body.id);
 
     console.log('apikey : ', create_apikey);
@@ -68,12 +66,23 @@ router.post('/registe', function(req, res, next) {
         user_address2: '',
         zip_code: '',
         user_phone1: phone[0],
-        usre_phone2: phone[1],
+        user_phone2: phone[1],
         user_phone3: phone[2],
         apikey: create_apikey,
 
     };
+    user_controller.create_user(user_info, function(row, err) {
+        if (row) {
+            console.log('success : ', row);
 
+        } else if (err) {
+
+            console.log('error : ', err);
+
+        } else {
+            console.log('null')
+        }
+    })
     res.redirect('/users/registe');
 
 });
