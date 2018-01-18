@@ -57,7 +57,7 @@ router.post('/registe', function(req, res, next) {
     console.log('phone split', phone[1]);
     console.log('phone split', phone[2]);
 
-    var user = {
+    var user_info = {
         userid: req.body.id,
         password: req.body.password,
         username: req.body.name,
