@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes) {
                 // associations can be defined here
                 device.hasMany(models.device_data);
                 device.belongTo(models.user, {
+                    foreignKeyConstraint: true,
                     foreignKey: 'apikey',
                     allowNull: false
                 });

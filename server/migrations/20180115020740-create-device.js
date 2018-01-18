@@ -15,7 +15,9 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             device_apikey: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                //references: 'user',
+                //referencesKey: 'apikey'
             },
             createdAt: {
                 allowNull: false,
