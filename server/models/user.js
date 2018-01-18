@@ -13,6 +13,8 @@ module.exports = function(sequelize, DataTypes) {
         },
         username: DataTypes.STRING,
         userage: DataTypes.INTEGER,
+        user_email: DataTypes.STRING,
+        user_country: DataTypes.STRING,
         user_address1: DataTypes.STRING,
         user_address2: DataTypes.STRING,
         zip_code: DataTypes.STRING,

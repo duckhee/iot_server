@@ -24,6 +24,12 @@ module.exports = {
             userage: {
                 type: Sequelize.INTEGER
             },
+            user_email: {
+                type: Sequelize.STRING
+            },
+            user_country: {
+                type: Sequelize.STRING
+            },
             user_address1: {
                 type: Sequelize.STRING
             },
