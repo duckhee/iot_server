@@ -46,7 +46,14 @@ module.exports = function(sequelize, DataTypes) {
                 user.hasMany(models.tbl_board);
 
             }
-        }
+        },
+
     });
+
+    user.hook("beforeCreate", function(user) {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+        console.log('bdforeCreate hook >>>>>>>>', user.password);
+    });
+
     return user;
 };
