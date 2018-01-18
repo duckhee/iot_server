@@ -36,7 +36,7 @@ router.post('/registe', function(req, res, next) {
     console.log('phone', req.body.phone);
     var create_apikey;
 
-    create_apikey = bCrypt.hashSync(req.body.id);
+    create_apikey = bCrypt.hashSync(req.body.id, bcrypt.genSaltSync(8), null);
 
     console.log('apikey : ', create_apikey);
 
