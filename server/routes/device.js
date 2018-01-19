@@ -1,4 +1,3 @@
-import { lchmod } from 'fs';
 
 var express = require('express');
 var router = express.Router();
@@ -7,7 +6,7 @@ var bCrypt = require('bcrypt-nodejs');
 
 
 router.get('/', function(req, res, next) {
-
+    res.redirect('/device/list')
 });
 
 router.get('/registe', function(req, res, next) {
