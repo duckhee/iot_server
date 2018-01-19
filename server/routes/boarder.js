@@ -47,7 +47,9 @@ router.get('/list', function(req, res, next) {
 });
 
 router.get('/detail', function(req, res, next) {
-    res.render('board/readPage');
+    res.render('board/readPage',{
+        
+    });
 });
 
 router.post('/detail', function(req, res, next) {

@@ -108,11 +108,16 @@ router.post('/modify', function(req, res, next) {
 });
 
 router.get('/delete', function(req, res, next) {
+    
+    
     res.render('user/delete');
 });
 
 router.post('/delete', function(req, res, next) {
+    user_info = {}
+    user_controller(user_info, function(row, err){
 
+    });
 });
 return router;
 }
