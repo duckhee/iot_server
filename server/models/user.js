@@ -57,8 +57,8 @@ module.exports = function(sequelize, DataTypes) {
                 });
 
                 user.hasMany(models.tbl_reply, {
-                    foreignKey:'user_id',
-                    onDelete:'CASCADE'
+                    foreignKey: 'user_id',
+                    onDelete: 'CASCADE'
                 });
 
             }
@@ -68,7 +68,7 @@ module.exports = function(sequelize, DataTypes) {
     //insert before 
     user.hook("beforeCreate", function(user) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-        console.log('bdforeCreate hook >>>>>>>>', user.password);
+        console.log('before Create hook >>>>>>>>', user.password);
     });
 
     return user;
