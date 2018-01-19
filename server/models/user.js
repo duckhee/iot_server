@@ -56,6 +56,11 @@ module.exports = function(sequelize, DataTypes) {
                     onDelete: 'CASCADE'
                 });
 
+                user.hasMany(models.tbl_reply, {
+                    foreignKey:'user_id',
+                    onDelete:'CASCADE'
+                });
+
             }
         },
 
