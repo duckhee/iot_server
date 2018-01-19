@@ -16,13 +16,10 @@ module.exports = {
             },
             device_apikey: {
                 type: Sequelize.STRING,
-                /*
-                onDelete: 'CASCADE',
                 references: {
                     model: 'user',
                     key: 'apikey'
                 }
-                */
             },
             createdAt: {
                 allowNull: false,
