@@ -1,13 +1,19 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
     var tbl_board = sequelize.define('tbl_board', {
-        title: DataTypes.STRING,
-        content: DataTypes.TEXT,
+        title: {
+            type: DataTypes.STRING,
+        },
+        content: {
+            type: DataTypes.TEXT,
+        },
         writer: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        viewcnt: DataTypes.INTEGER
+        viewcnt: {
+            type: DataTypes.INTEGER,
+        }
     }, {
         classMethods: {
             associate: function(models) {

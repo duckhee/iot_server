@@ -13,12 +13,14 @@ exports.insert_board = function(board_info, callback) {
 
         },
         */
+        /*
         include: [{
             models: models.user.user_id,
             where: {
                 user_id: req.session.user
             }
         }],
+        */
         defaults: {
             title: board_info.title,
             content: board_info.content,
