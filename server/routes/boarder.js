@@ -39,7 +39,8 @@ router.get('/list', function(req, res, next) {
                 res.redirect('/boards');
             }
         } else if (err) {
-            next(err);
+            console.log('error : ', err);
+            res.render('boarder/emptylistPage');
         } else {
             res.redirect('/boards');
         }
@@ -48,7 +49,7 @@ router.get('/list', function(req, res, next) {
 
 router.get('/detail', function(req, res, next) {
     res.render('board/readPage',{
-        
+
     });
 });
 
