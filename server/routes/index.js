@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
     res.render('index');
 });
 
+router.get('/test_index', function(req, res, next){
+    res.render('start_index');
+});
+
 module.exports = router;
