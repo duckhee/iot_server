@@ -3,6 +3,10 @@ var router = express.Router();
 var user_controller = require('../controllers/user_controllers');
 var bCrypt = require('bcrypt-nodejs');
 
+module.exports = function(passport){
+
+
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -104,12 +108,17 @@ router.post('/modify', function(req, res, next) {
 });
 
 router.get('/delete', function(req, res, next) {
+    
+    
     res.render('user/delete');
 });
 
 router.post('/delete', function(req, res, next) {
+    user_info = {}
+    user_controller(user_info, function(row, err){
 
+    });
 });
-
-
+return router;
+}
 module.exports = router;
