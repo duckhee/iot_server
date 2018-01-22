@@ -16,16 +16,20 @@ module.exports = {
                 }
             },
             data_onevalue: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                defaults:'0'
             },
             data_twovalue: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                defaults:'0'
             },
             data_threevalue: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                defaults:'0'
             },
             data_fourvalue: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
+                defaults:'0'
             },
             createdAt: {
                 allowNull: false,
