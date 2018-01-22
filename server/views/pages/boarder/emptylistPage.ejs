@@ -140,4 +140,14 @@
     
     <% include ../../partials/footer_javascript_index.ejs %>
   </body>
+  <script>
+        $(document).ready(function(){
+          $("#newBtn").click(function(){
+              console.log('testing button click');
+              location.href = '/boards/registe';
+          })
+        });
+        
+        
+    </script>
 </html>
