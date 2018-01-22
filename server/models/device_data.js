@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             references:{
-                model:devices,
+                model:'devices',
                 key:'device_apikey'
             }
         },
