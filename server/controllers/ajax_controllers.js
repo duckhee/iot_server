@@ -9,14 +9,20 @@ exports.ajax_getlistdata = function(ajax_info, callback){
         where:{
             data_apikey:ajax_info.apikey
         },
+        include:[{
+            models:models.user,
+            where:{
+                user_id:ajax_info.user_id
+            }
+        }],
         limit:10,
         order: [
             ['createdAt', 'DESC']
         ]
     }).then(function(row){
-
+        callback(row, null);
     }).catch(function(err){
-
+        callback(null, err);
     });
 };
 //ajax get all data
@@ -24,14 +30,20 @@ exports.ajax_getalldata = function(ajax_info, callback){
     models.device_data.findAll({
         where:{
             data_apikey:ajax_info.apikey
-        },
+        },  
+        include:[{
+            models:models.user,
+            where:{
+                user_id:ajax_info.user_id
+            }
+        }],
         order: [
             ['createdAt', 'DESC']
         ]
     }).then(function(rows){
-
+        callback(rows, null);
     }).catch(function(err){
-
+        callback(null, err);
     });
 };
 //ajax get image path
