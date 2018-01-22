@@ -26,9 +26,32 @@
             <li><a href="/data/chart"><i class="fa fa-circle-o"></i>show chart</a></li>
             <li><a href="/data/data"><i class="fa fa-circle-o"></i>show data</a></li>
             <li><a href="/data/image"><i class="fa fa-circle-o"></i>show images</a></li>
-        
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i>devices list
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> list</a></li>
+                <li>
+                  <a href="#"><i class="fa fa-circle-o"></i> show
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i>detail</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>chart</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>data</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i>images</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
             <!-- list start -->
-            <!-- <li>
+            <li>
               <a href="#"><i class="fa fa-circle-o"></i>devices list
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
@@ -49,7 +72,7 @@
                   </ul>
                 </li>
               </ul>
-            </li> -->
+            </li>
            <!-- list end -->
         </ul>
     </li>

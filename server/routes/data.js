@@ -5,17 +5,17 @@ var data_controller = require('../controllers/data_controllers');
 
 //data index
 router.get('/', function(req, res, next) {
-    res.render('device/data/detailPage');
+    res.redirect('device/data/show');
 });
 
 //show images and data
 router.get('/show', function(req, res, next) {
-    res.render('device/data/showDataPage');
+    res.render('device/data/showAllPage');
 });
 
 //get chart 
 router.get('/chart', function(req, res, next) {
-
+    res.render('chart/data_chart');
 });
 
 //only show data
