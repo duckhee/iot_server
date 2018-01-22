@@ -17,7 +17,7 @@ var devices = require('./server/routes/device');
 var datas = require('./server/routes/data');
 
 //testing page router
-var testing = require('./server//routes/test_router');
+var testing = require('./server/routes/test_router');
 
 
 var app = express();

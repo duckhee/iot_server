@@ -7,5 +7,6 @@ var db = require('../models');
 
 module.exports = function(passport, user) {
 
+     var User = user;
 
 };
