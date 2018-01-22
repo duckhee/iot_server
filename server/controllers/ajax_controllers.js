@@ -1,5 +1,4 @@
 
-
 var models = require('../models/index');
 var device_data = require('../models/device_data');
 
@@ -10,7 +9,10 @@ exports.ajax_getlistdata = function(ajax_info, callback){
         where:{
             data_apikey:ajax_info.apikey
         },
-        limit:10
+        limit:10,
+        order: [
+            ['createdAt', 'DESC']
+        ]
     }).then(function(row){
 
     }).catch(function(err){
@@ -22,7 +24,10 @@ exports.ajax_getalldata = function(ajax_info, callback){
     models.device_data.findAll({
         where:{
             data_apikey:ajax_info.apikey
-        }
+        },
+        order: [
+            ['createdAt', 'DESC']
+        ]
     }).then(function(rows){
 
     }).catch(function(err){
@@ -35,6 +40,6 @@ exports.ajax_image = function(ajax_info, callback){
 };
 
 //ajax get image all 
-exports.ajax_imagelist = funciton(ajax_info, callback){
+exports.ajax_imagelist = function(ajax_info, callback){
 
 }
