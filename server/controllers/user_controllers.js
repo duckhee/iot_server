@@ -89,7 +89,9 @@ exports.select_list_user = function(user_info, callback) {
 
 //modfiy user
 exports.modfiy_user = function(user_info, callback) {
-    models.user.update({}, {
+    models.user.update({
+        
+    }, {
         where: {
             userid: user_info.userid
         }
