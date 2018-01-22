@@ -3,7 +3,11 @@ module.exports = function(sequelize, DataTypes) {
     var device_data = sequelize.define('device_data', {
         data_apikey: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            references:{
+                model:device,
+                key:"device_apikey"
+            }
         },
         data_onevalue: {
             type: DataTypes.STRING,
@@ -32,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
                 });
             }
         },
-        
+
     });
     return device_data;
 };
