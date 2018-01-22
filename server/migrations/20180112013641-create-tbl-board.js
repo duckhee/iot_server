@@ -16,7 +16,11 @@ module.exports = {
             },
             writer: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull: false,
+                references:{
+                    model:'users',
+                    key:'user_id'
+                }
             },
             viewcnt: {
                 type: Sequelize.INTEGER,

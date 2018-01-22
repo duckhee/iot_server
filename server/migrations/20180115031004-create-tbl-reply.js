@@ -20,8 +20,8 @@ module.exports = {
                 type: Sequelize.STRING,
                 allowNull: false,
                 references:{
-                    model:'users',
-                    key:'userid'
+                    model:'tbl_boards',
+                    key:'writer'
                 }
             },
             rcontent: {
