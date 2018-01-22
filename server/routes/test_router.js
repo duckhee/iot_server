@@ -12,5 +12,8 @@ router.get('/test3', function(req, res, next) {
     res.render('testing_index');
 });
 
+router.get('/test4', function(req, res, next){
+    res.render('testlist_page');
+})
 
 module.exports = router;
