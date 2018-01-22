@@ -22,7 +22,7 @@ router.get('/ajax', function(req, res, next) {
         }else{
             console.log('null');
         }
-    })
+    });
 
 });
 
