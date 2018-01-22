@@ -9,11 +9,20 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             bno: {
-                type: Sequelize.INTEGER
+                type: Sequelize.INTEGER,
+                allowNull:false,
+                references:{
+                    model:'tbl_boards',
+                    key:'id'
+                }
             },
             rwriter: {
                 type: Sequelize.STRING,
                 allowNull: false,
+                references:{
+                    model:'users',
+                    key:'userid'
+                }
             },
             rcontent: {
                 type: Sequelize.TEXT
