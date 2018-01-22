@@ -16,10 +16,10 @@ module.exports = {
             },
             device_apikey: {
                 type: Sequelize.STRING,
-                 references: {
-                     model: users,
-                     key: 'apikey'
-                 }
+                references: {
+                    model: 'users',
+                    key: 'apikey'
+                }
             },
             createdAt: {
                 allowNull: false,
