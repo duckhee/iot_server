@@ -145,8 +145,12 @@
           $("#newBtn").click(function(){
               console.log('testing button click');
               location.href = '/boards/registe';
-          })
+          });
+          $("#searchBtn").click(function(){
+            alert($("#searchKeyword").val());
+            location.href = '/search?'+$("#searchKeyword").val();
         });
+    });
         
         
     </script>

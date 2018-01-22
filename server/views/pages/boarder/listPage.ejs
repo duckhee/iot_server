@@ -159,7 +159,10 @@
   $(document).ready(function(){
     $("#newBtn").click(function(){
         local.href = '/boards/registe';
-    })
+    });
+    $("#searchBtn").click(function(){
+        alter($("#searchKeyword").val());
+    });
   });
   
   
