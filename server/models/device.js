@@ -5,7 +5,8 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         device_num: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            defaults: 0
         },
         device_apikey: {
             type: DataTypes.STRING,
@@ -23,7 +24,8 @@ module.exports = function(sequelize, DataTypes) {
                     allowNull: false
                 });
             }
-        }
+        },
+        
     });
     return device;
 };

@@ -6,7 +6,8 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         },
         data_onevalue: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaults:'0'
         },
         data_twovalue: {
             type: DataTypes.STRING,
@@ -30,7 +31,8 @@ module.exports = function(sequelize, DataTypes) {
                     allowNull: false
                 });
             }
-        }
+        },
+        
     });
     return device_data;
 };
