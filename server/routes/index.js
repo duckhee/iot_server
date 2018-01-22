@@ -10,8 +10,4 @@ router.get('/test_index', function(req, res, next){
     res.render('start_index');
 });
 
-router.get('/testing_index', function(req, res, next){
-    res.render('test_index');
-})
-
 module.exports = router;
