@@ -10,8 +10,8 @@ module.exports = function(sequelize, DataTypes) {
         },
         device_apikey: {
             type: DataTypes.STRING,
-            references: 'user',
-            referencesKey: 'apikey'
+            // references: 'user',
+            // referencesKey: 'apikey'
         }
     }, {
         classMethods: {
