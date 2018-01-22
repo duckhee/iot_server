@@ -5,6 +5,10 @@ module.exports = function(sequelize, DataTypes) {
         rwriter: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model: 'users',
+                key: 'userid'
+            }
         },
         rcontent: DataTypes.TEXT
     }, {
