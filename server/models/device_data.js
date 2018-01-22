@@ -9,13 +9,16 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         data_twovalue: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaults: '0'
         },
         data_threevalue: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaults: '0'
         },
         data_fourvalue: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            defaults: '0'
         },
     }, {
         classMethods: {

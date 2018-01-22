@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var sassMiddleware = require('node-sass-middleware');
+// var sassMiddleware = require('node-sass-middleware');
 //var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var session = require('express-session');
@@ -15,6 +15,9 @@ var users = require('./server/routes/users');
 var boarders = require('./server/routes/boarder');
 var devices = require('./server/routes/device');
 var datas = require('./server/routes/data');
+
+//testing page router
+var testing = require('./server//routes/test_router');
 
 
 var app = express();
@@ -29,12 +32,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(sassMiddleware({
-    src: path.join(__dirname, 'public'),
-    dest: path.join(__dirname, 'public'),
-    indentedSyntax: true, // true = .sass and false = .scss
-    sourceMap: true
-}));
+// app.use(sassMiddleware({
+//     src: path.join(__dirname, 'public'),
+//     dest: path.join(__dirname, 'public'),
+//     indentedSyntax: true, // true = .sass and false = .scss
+//     sourceMap: true
+// }));
 //section use
 
 app.use(session({
@@ -67,10 +70,12 @@ app.use('/users', users);
 app.use('/boards', boarders);
 app.use('/device', devices);
 app.use('/data', datas);
+//test router
+app.use('/test', testing);
 
 
-//testing router 
-var testing = require('./server/routes/boarder_test');
+//testing router (passport)
+//var testing = require('./server/routes/boarder_test');
 //app.use('/test', testing(passport));
 
 

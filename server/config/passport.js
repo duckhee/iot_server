@@ -12,7 +12,7 @@ module.exports = function(passport, user) {
 
     //user to deserialize the user
     passport.deserializeUser(function(id, dnoe) {
-        User.findById(id).then(function(userr) {
+        User.findById(id).then(function(user) {
             if (user) {
                 done(null, user.get());
                 //done(user.get(), null);
@@ -87,7 +87,7 @@ module.exports = function(passport, user) {
                     return done(null, false, { message: 'Email does not exist' });
                 }
 
-                if (!isValidPassword(user.passowrd, passsword)) {
+                if (!isValidPassword(user.password, passsword)) {
                     return done(null, false, { message: 'Incorrect password.' });
                 }
 
