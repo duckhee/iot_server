@@ -10,6 +10,7 @@ module.exports = {
             },
             data_apikey: {
                 type: Sequelize.STRING,
+                allowNull: false,
                 references: {
                     model: 'devices',
                     key: 'device_apikey'

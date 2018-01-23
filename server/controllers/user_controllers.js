@@ -21,6 +21,7 @@ exports.insert_user = function(user_info, callback) {
             user_phone1: user_info.user_phone1,
             user_phone2: user_info.user_phone2,
             user_phone3: user_info.user_phone3,
+            apikey: user_info.apikey
         }).then(function(row) {
             console.log('success');
             callback(row, null);
@@ -62,7 +63,8 @@ exports.create_user = function(user_info, callback) {
 exports.select_one_user = function(user_info, callback) {
     models.user.find({
         where: {
-            userid: user_info.userid
+            userid: user_info.userid,
+            password: user_info.password
         }
     }).then(function(row) {
         console.log('success');
