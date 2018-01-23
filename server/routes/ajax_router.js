@@ -20,6 +20,20 @@ router.post('/ajax', function(req, res, next) {
 router.get('/ajaxdata', function(req, res, next) {
     var user_id = req.query.user_id || req.params.user_id || req.body.user_id;
     var apikey = req.query.apikey || req.params.apikey || req.body.apikey;
+
+    var data_info = {
+        userid: user_id,
+        apikey: apikey
+    };
+    data_controllers.data_list(data_info, function(row, err) {
+        if (row) {
+            res.json(row);
+        } else if (err) {
+            res.json(err);
+        } else {
+            res.json('0');
+        }
+    })
 });
 
 router.post('/ajaxdata', function(req, res, next) {

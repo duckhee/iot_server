@@ -31,7 +31,7 @@ exports.insert_user = function(user_info, callback) {
     }
     //create user
 exports.create_user = function(user_info, callback) {
-    var encodingpassword = bCrypt;
+
     models.user.findOrCreate({
         where: {
             userid: user_info.userid
@@ -90,7 +90,7 @@ exports.select_list_user = function(user_info, callback) {
 //modfiy user
 exports.modfiy_user = function(user_info, callback) {
     models.user.update({
-        
+
     }, {
         where: {
             userid: user_info.userid
