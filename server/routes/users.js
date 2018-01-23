@@ -89,17 +89,19 @@ module.exports = function(passport) {
                 apikey: create_apikey,
 
             };
-            user_controller.create_user(user_info, function(row, err) {
-                if (row) {
-                    console.log('success : ', row);
-                    res.redirect('/users/login');
+            user_controller.create_user(user_info, function(user_old, user_new, err) {
+                if (user_new) {
+                    console.log('success : ' + row);
+                    res.json('new user : ', user_new);
+                } else if (user_old) {
+                    console.log('old user : ', user_old);
+                    res.json('old user : ' + user_old);
                 } else if (err) {
-
                     console.log('error : ', err);
-                    next(err);
+                    res.json(err);
                 } else {
                     console.log('null')
-                    res.redirect('/users/registe');
+                    res.json('/users/registe');
                 }
             });
 
