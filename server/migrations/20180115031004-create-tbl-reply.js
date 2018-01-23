@@ -10,19 +10,21 @@ module.exports = {
             },
             bno: {
                 type: Sequelize.INTEGER,
-                allowNull:false,
-                references:{
-                    model:'tbl_boards',
-                    key:'id'
-                }
+                allowNull: false,
+                references: {
+                    model: 'tbl_boards',
+                    key: 'id'
+                },
+                onDelete: 'CASCADE',
             },
             rwriter: {
                 type: Sequelize.STRING,
                 allowNull: false,
-                references:{
-                    model:'users',
-                    key:'userid'
-                }
+                references: {
+                    model: 'users',
+                    key: 'userid'
+                },
+                onDelete: 'CASCADE',
             },
             rcontent: {
                 type: Sequelize.TEXT

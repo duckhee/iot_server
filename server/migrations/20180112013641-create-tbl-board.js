@@ -16,7 +16,12 @@ module.exports = {
             },
             writer: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull: false,
+                references: {
+                    model: 'users',
+                    key: 'userid'
+                },
+                onDelete: 'CASCADE',
             },
             viewcnt: {
                 type: Sequelize.INTEGER,

@@ -19,7 +19,8 @@ module.exports = {
                 references: {
                     model: 'users',
                     key: 'apikey'
-                }
+                },
+                onDelete: 'CASCADE',
             },
             createdAt: {
                 allowNull: false,
