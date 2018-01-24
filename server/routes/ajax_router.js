@@ -2,13 +2,27 @@ var express = require('express');
 var router = express.Router();
 var data_controllers = require('../controllers/data_controllers');
 var device_controllers = require('../controllers/device_controller');
-var user_controllers = require('../controllers/user_controller');
+var user_controllers = require('../controllers/user_controllers');
 
 //check id
-router.get('/ajaxid', function(req, res, next){
+router.get('/ajaxid', function(req, res, next) {
     var user_id = req.query.user_id || req.params.user_id || req.body.user_id;
-
-})
+    console.log(user_id);
+    var user_info = { id: user_id };
+    if (user_id) {
+        user_controllers.check_id(user_info, function(row, err) {
+            if (row) {
+                res.json('check : ' + row.datValues);
+            } else if (err) {
+                res.json('error : ' + err);
+            } else {
+                res.json('null');
+            }
+        });
+    } else {
+        res.json('checkking');
+    }
+});
 
 //sequelize get 
 router.get('/ajax', function(req, res, next) {

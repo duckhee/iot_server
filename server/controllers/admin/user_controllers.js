@@ -53,9 +53,9 @@ exports.create_user = function(user_info, callback) {
         },
         where: {
             userid: user_info.userid,
-            
+
         },
-    })spread(function(user, created) {
+    }).spread(function(user, created) {
         if (created) {
             //created user callback baloon
             callback(created, null, null);

@@ -1,4 +1,5 @@
-function randomString() {
+//craete apikey
+function createApikey() {
     var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
     var string_length = 15;
     var randomstring = '';
@@ -9,3 +10,11 @@ function randomString() {
     //document.randform.randomfield.value = randomstring;
     return randomstring;
 }
+//null checking
+var isEmpty = function(value) {
+    if (value == "" || value == null || value == undefined || (value != null && typeof value == "object" && !Object.keys(value).length)) {
+        return true
+    } else {
+        return false
+    }
+};

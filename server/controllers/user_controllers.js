@@ -8,6 +8,16 @@ var bCrypt = require('bcrypt-nodejs');
     modify user
     select user
 */
+
+//null checking
+var isEmpty = function(value) {
+    if (value == "" || value == null || value == undefined || (value != null && typeof value == "object" && !Object.keys(value).length)) {
+        return true
+    } else {
+        return false
+    }
+};
+
 //insert user
 exports.insert_user = function(user_info, callback) {
         models.user.create({
@@ -123,4 +133,26 @@ exports.destory_user = function(user_info, callback) {
         console.log('error');
         callback(null, err);
     });
+};
+
+//check id
+exports.check_id = function(user_info, callback) {
+    models.user.findAll({
+        where: {
+            userid: user_info.id
+        }
+    }).then(function(row) {
+        if (isEmpty(row) === true) {
+            console.log(' null ');
+        } else if (isEmpty(row) === false) {
+            console.log('not null ');
+        } else {
+            console.log('error');
+        }
+        //console.log(row);
+        callback(row, null);
+    }).catch(function(err) {
+        console.log(err);
+        callback(null, err);
+    })
 };
