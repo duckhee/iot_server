@@ -55,12 +55,12 @@ exports.create_user = function(user_info, callback) {
             userid: user_info.userid,
             
         },
-    }).spread(function(user, created) {
+    })spread(function(user, created) {
         if (created) {
-            console.log('testing created ?');
-            callback(user.dataValues, null, null);
+            //created user callback baloon
+            callback(created, null, null);
         } else {
-            console.log('testing find ?');
+            //find user
             callback(null, user.dataValues, null);
         }
     }).catch(function(err) {

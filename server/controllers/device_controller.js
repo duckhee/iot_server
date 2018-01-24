@@ -9,17 +9,19 @@ exports.create_device = function(device_info, callback) {
         defaults: {
 
         }
-    }).then(function(row) {
-        console.log('success');
-        console.log('device insert : ', row);
-        callback(row, null);
+    }).spread(function(device, created) {
+        if (created) {
+            //created user callback baloon
+            callback(created, null, null);
+        } else {
+            //find user
+            callback(null, device.dataValues, null);
+        }
     }).catch(function(err) {
-        console.log('failed...');
-        console.log('device insert error : ', err);
-        callback(null, err);
+        console.log('error');
+        callback(null, null, err);
     });
 };
-
 exports.select_device = function(device_info, callback) {
     models.device.findOne({
         where: {
