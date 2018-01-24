@@ -9,14 +9,6 @@ var bCrypt = require('bcrypt-nodejs');
     select user
 */
 
-//null checking
-var isEmpty = function(value) {
-    if (value == "" || value == null || value == undefined || (value != null && typeof value == "object" && !Object.keys(value).length)) {
-        return true
-    } else {
-        return false
-    }
-};
 
 //insert user
 exports.insert_user = function(user_info, callback) {
