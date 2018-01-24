@@ -18,19 +18,19 @@ function createapikey() {
 module.exports = function(passport) {
 
 
-
-
         /* GET users listing. */
         router.get('/', function(req, res, next) {
+
             res.redirect('/users/login');
         });
 
 
         router.get('/login', function(req, res, next) {
+
             res.render('user/login_page');
         });
 
-        router.post('/login', function(req, res, next) {
+        router.post('/process/login', function(req, res, next) {
 
         });
 

@@ -78,6 +78,8 @@ app.use('/insert', insert_data);
 app.use('/test', testing);
 
 
+
+
 //testing router (passport)
 //var testing = require('./server/routes/boarder_test');
 //app.use('/test', testing(passport));
