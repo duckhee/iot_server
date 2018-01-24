@@ -36,6 +36,7 @@ module.exports = function(passport) {
 
         router.get('/logout', function(req, res, next) {
 
+
         });
 
         router.post('/logout', function(req, res, next) {
@@ -47,7 +48,7 @@ module.exports = function(passport) {
         });
 
         router.post('/registe', function(req, res, next) {
-            
+
             var create_apikey = createapikey();
 
             //if do you want secret
@@ -55,11 +56,11 @@ module.exports = function(passport) {
 
             var phone = new Array;
             if (req.body.phone.indexOf('-') != -1) {
-            
-            
+
+
                 phone = req.body.phone.split('-');
             } else {
-            
+
                 phone[0] = req.body.phone.substr(0, 3);
                 phone[1] = req.body.phone.substr(3, 4);
                 phone[2] = req.body.phone.substr(7, 4);
@@ -83,10 +84,10 @@ module.exports = function(passport) {
             };
             user_controller.create_user(user_info, function(user_new, user_old, err) {
                 if (user_new) {
-                    
+
                     res.json('new user : ');
                 } else if (user_old) {
-                    
+
                     res.json('old user : ' + user_old);
                 } else if (err) {
                     console.log('error : ', err);
