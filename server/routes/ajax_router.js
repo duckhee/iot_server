@@ -4,6 +4,15 @@ var data_controllers = require('../controllers/data_controllers');
 var device_controllers = require('../controllers/device_controller');
 var user_controllers = require('../controllers/user_controllers');
 
+//null checking
+var isEmpty = function(value) {
+    if (value == "" || value == null || value == undefined || (value != null && typeof value == "object" && !Object.keys(value).length)) {
+        return true
+    } else {
+        return false
+    }
+};
+
 //check id
 router.get('/ajaxid', function(req, res, next) {
     var user_id = req.query.user_id || req.params.user_id || req.body.user_id;
@@ -12,7 +21,15 @@ router.get('/ajaxid', function(req, res, next) {
     if (user_id) {
         user_controllers.check_id(user_info, function(row, err) {
             if (row) {
-                res.json('check : ' + row.datValues);
+                //check id
+                if (isEmpty(row) === true) {
+                    res.json('use id');
+                } else if (isEmpty(row) === false) {
+                    res.json('can not use id');
+                } else {
+                    res.json('error ');
+                }
+                //check id end
             } else if (err) {
                 res.json('error : ' + err);
             } else {
