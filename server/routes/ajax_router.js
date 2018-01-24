@@ -33,7 +33,7 @@ router.get('/ajaxdata', function(req, res, next) {
         } else {
             res.json('0');
         }
-    })
+    });
 });
 
 router.post('/ajaxdata', function(req, res, next) {

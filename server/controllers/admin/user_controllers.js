@@ -37,7 +37,6 @@ exports.insert_user = function(user_info, callback) {
 exports.create_user = function(user_info, callback) {
 
     models.user.findOrCreate({
-
         defaults: {
             password: user_info.password,
             username: user_info.username,
@@ -53,15 +52,16 @@ exports.create_user = function(user_info, callback) {
             apikey: user_info.apikey
         },
         where: {
-            userid: user_info.userid
+            userid: user_info.userid,
+            
         },
     }).spread(function(user, created) {
-        if (user) {
+        if (created) {
             console.log('testing created ?');
-            callback(user, null, null);
+            callback(user.dataValues, null, null);
         } else {
             console.log('testing find ?');
-            callback(null, created, null);
+            callback(null, user.dataValues, null);
         }
     }).catch(function(err) {
         console.log('error');

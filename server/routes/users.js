@@ -12,7 +12,6 @@ function createapikey() {
         randomstring += chars.substring(rnum, rnum + 1);
     }
     //document.randform.randomfield.value = randomstring;
-    console.log(randomstring);
     return randomstring;
 }
 
@@ -48,30 +47,23 @@ module.exports = function(passport) {
         });
 
         router.post('/registe', function(req, res, next) {
-            console.log('id : ', req.body.id);
-            console.log('country', req.body.shortCountryCode);
-            console.log('phone', req.body.phone);
+            
             var create_apikey = createapikey();
 
             //if do you want secret
             //create_apikey = bCrypt.hashSync(req.body.id, bCrypt.genSaltSync(3), null);
 
-            console.log('apikey : ', create_apikey);
-
             var phone = new Array;
             if (req.body.phone.indexOf('-') != -1) {
-                console.log('success');
-                console.log(req.body.phone);
+            
+            
                 phone = req.body.phone.split('-');
             } else {
-                console.log('not - in ');
+            
                 phone[0] = req.body.phone.substr(0, 3);
                 phone[1] = req.body.phone.substr(3, 4);
                 phone[2] = req.body.phone.substr(7, 4);
             }
-            console.log('phone split', phone[0]);
-            console.log('phone split', phone[1]);
-            console.log('phone split', phone[2]);
 
             var user_info = {
                 userid: req.body.id,
@@ -89,12 +81,12 @@ module.exports = function(passport) {
                 apikey: create_apikey,
 
             };
-            user_controller.create_user(user_info, function(user_old, user_new, err) {
+            user_controller.create_user(user_info, function(user_new, user_old, err) {
                 if (user_new) {
-                    console.log('success : ' + row);
-                    res.json('new user : ', user_new);
+                    
+                    res.json('new user : ');
                 } else if (user_old) {
-                    console.log('old user : ', user_old);
+                    
                     res.json('old user : ' + user_old);
                 } else if (err) {
                     console.log('error : ', err);
