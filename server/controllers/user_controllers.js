@@ -142,14 +142,6 @@ exports.check_id = function(user_info, callback) {
             userid: user_info.id
         }
     }).then(function(row) {
-        // if (isEmpty(row) === true) {
-        //     console.log(' null ');
-        // } else if (isEmpty(row) === false) {
-        //     console.log('not null ');
-        // } else {
-        //     console.log('error');
-        // }
-        //console.log(row);
         callback(row, null);
     }).catch(function(err) {
         console.log(err);
