@@ -33,6 +33,9 @@ module.exports = {
                 type: Sequelize.STRING,
                 defaults: '0'
             },
+            data_text: {
+                type: DataTypes.TEXT
+            },
             createdAt: {
                 allowNull: false,
                 type: 'TIMESTAMP',
