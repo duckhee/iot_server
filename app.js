@@ -19,7 +19,7 @@ var ajax = require('./server/routes/ajax_router');
 var insert_data = require('./server/routes/insert_data');
 
 //testing page router
-var testing = require('./server//routes/test_router');
+var testing = require('./server/routes/test_router');
 
 
 var app = express();

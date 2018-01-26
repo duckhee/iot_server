@@ -7,6 +7,7 @@ module.exports = function(passport, user) {
     passport.serializeUser(function(user, done) {
         //user id callback
         // done(user.id, null);
+        console.log(user);
         done(null, user.id);
     });
 
@@ -14,9 +15,11 @@ module.exports = function(passport, user) {
     passport.deserializeUser(function(id, dnoe) {
         User.findById(id).then(function(user) {
             if (user) {
+                console.log(user);
                 done(null, user.get());
                 //done(user.get(), null);
             } else {
+                console.log(user.errors);
                 done(user.errors, null);
                 //done(null, user.errors);
             }

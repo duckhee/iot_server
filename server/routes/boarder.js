@@ -13,12 +13,15 @@ router.get('/registe', function(req, res, next) {
 
 router.post('/process/registe', function(req, res, next) {
     var title = req.body.title;
-    var content = req.body.content;
+    var content = req.body.editor1;
     var board_info = {
         title: title,
         content: content,
         writer: ''
     };
+
+    console.log('title', title);
+    console.log('content', content);
     res.redirect('/');
 });
 
@@ -63,6 +66,10 @@ router.get('/reply', function(req, res, next) {
 
 router.post('/reply', function(req, res, next) {
 
+});
+
+router.post('/search', function(req, res, next){
+    
 });
 
 module.exports = router;
