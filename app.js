@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var session = require('express-session');
-
+var flash = require('connect-flash');
 //router
 var index = require('./server/routes/index');
 var users = require('./server/routes/users');
@@ -56,7 +56,7 @@ app.use(passport.initialize());
 //login section foreever
 app.use(passport.session());
 //flash message 
-//app.use(flash());
+app.use(flash());
 
 //public file url /static
 app.use('/static', express.static(path.join(__dirname, 'public')));

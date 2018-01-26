@@ -140,3 +140,17 @@ exports.check_id = function(user_info, callback) {
         callback(null, err);
     })
 };
+
+//login user
+exports.login = function(user_info, callback) {
+    module.user.findOne({
+        where: {
+            userid: user_info.userid,
+            password: user_info.password
+        }
+    }).then(function(row) {
+
+    }).catch(function(err) {
+        callback(null, err);
+    })
+}
