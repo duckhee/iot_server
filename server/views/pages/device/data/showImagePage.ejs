@@ -5,7 +5,7 @@
     <title>welcome Test IOF</title>
     <% include ../../../partials/stylesheet.ejs %>
     <% include ../../../partials/header_javascript.ejs %>
-    <% include ../../.../partials/weather_config.ejs %>
+    <% include ../../../partials/weather_config.ejs %>
 </head>
 
 
@@ -74,12 +74,7 @@
                                 </div>
                                 <div class="box-body">
                                 <p> click button download.</p>
-                                <form action="/process/download_csv?serial_Num=<%=serial_Num%>" method="post">
-                                    <button type="submit" class="btn btn-block btn-success" name="sensor_download" id="sensor_download"><i class="fa fa-fw fa-download"></i>Sensor Data Download</button>
-                                </form>
-                                <form action="/process/download_zip?serial_Num=<%=serial_Num%>" method="post">
-                                    <button type="submit" class="btn btn-block btn-danger" name="image_download" id="image_download"><i class="fa fa-fw fa-download"></i>Picture Data Download</button>
-                                </form>
+                              
                                 </div>
                             </div>
                         </div>
@@ -93,7 +88,7 @@
                                 <div class="box-header with-border">
                                     <i class="fa fa-bar-chart-o"></i>
                                     <h3 class="box-title">EC Value (dS/m ECe) 
-                                            </h3><div class="box-tools pull-right"><%= str %></div>     
+                                            </h3><div class="box-tools pull-right"></div>     
                                     <!--<button class="pull-right" id="value_download" name="value_download"><i class="fa fa-fw fa-download"></i>download</button>-->
                                 </div>
                                 <div class="box-body">                                    
@@ -111,7 +106,7 @@
                                 <div class="box-header with-border">
                                     <i class="fa fa-bar-chart-o"></i>
                                     <h3 class="box-title">Temperature Value (degC) 
-                                           </h3><div class="box-tools pull-right"><%= str %></div>                                    
+                                           </h3><div class="box-tools pull-right"></div>                                    
                                     <!-- <button class="pull-right" id="value_download" name="value_download"><i class="fa fa-fw fa-download"></i>download</button> -->
                                 </div>
 
@@ -131,7 +126,7 @@
                                 <div class="box-header with-border">
                                     <i class="fa fa-bar-chart-o"></i>
                                     <h3 class="box-title">Moisture Value (%VWC)
-                                            </h3><div class="box-tools pull-right"><%= str %></div>     
+                                            </h3><div class="box-tools pull-right"></div>     
                                     <!--<button class="pull-right" id="value_download" name="value_download"><i class="fa fa-fw fa-download"></i>download</button> -->
                                 </div>
                                 <div class="box-body">
