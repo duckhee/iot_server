@@ -10,26 +10,31 @@ module.exports = {
             },
             data_apikey: {
                 type: Sequelize.STRING,
-                references:{
-                    model:'devices',
-                    key:'device_apikey'
-                }
+                allowNull: false,
+                references: {
+                    model: 'devices',
+                    key: 'device_apikey'
+                },
+                onDelete: 'CASCADE',
             },
             data_onevalue: {
                 type: Sequelize.STRING,
-                defaults:'0'
+                defaults: '0'
             },
             data_twovalue: {
                 type: Sequelize.STRING,
-                defaults:'0'
+                defaults: '0'
             },
             data_threevalue: {
                 type: Sequelize.STRING,
-                defaults:'0'
+                defaults: '0'
             },
             data_fourvalue: {
                 type: Sequelize.STRING,
-                defaults:'0'
+                defaults: '0'
+            },
+            data_text: {
+                type: DataTypes.TEXT
             },
             createdAt: {
                 allowNull: false,

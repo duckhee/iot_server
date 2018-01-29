@@ -26,19 +26,17 @@ exports.insert_board = function(board_info, callback) {
             content: board_info.content,
             writer: board_info.user_id,
         }
-    }).spread(function(user, created) {
-        if (created) {
-            //created user callback baloon
-            callback(created, null, null);
-        } else {
-            //find user
-            callback(null, user.dataValues, null);
-        }
+    }).then(function(row) {
+        console.log('success');
+        console.log('tbl board insert : ', row);
+        callback(row, null);
     }).catch(function(err) {
-        console.log('error');
-        callback(null, null, err);
+        console.log('failed...');
+        console.log('insert board error : ', err);
+        callback(null, err);
     });
 };
+
 exports.all_list_board = function(callback) {
     models.tbl_board.findAll({
 

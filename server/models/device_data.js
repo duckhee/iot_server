@@ -4,14 +4,14 @@ module.exports = function(sequelize, DataTypes) {
         data_apikey: {
             type: DataTypes.STRING,
             allowNull: false,
-            references:{
-                model:'devices',
-                key:'device_apikey'
+            references: {
+                model: 'devices',
+                key: 'device_apikey'
             }
         },
         data_onevalue: {
             type: DataTypes.STRING,
-            defaults:'0'
+            defaults: '0'
         },
         data_twovalue: {
             type: DataTypes.STRING,
@@ -25,6 +25,9 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             defaults: '0'
         },
+        data_text: {
+            type: DataTypes.TEXT
+        }
     }, {
         classMethods: {
             associate: function(models) {

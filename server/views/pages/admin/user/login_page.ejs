@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Login Page</title>
-        <% include ../../partials/stylesheet.ejs %>
-        <% include ../../partials/header_javascript.ejs %>
+        <% include ../../../partials/stylesheet.ejs %>
+        <% include ../../../partials/header_javascript.ejs %>
     </head>
     
     <body class="hold-transition login-page">
@@ -15,7 +15,7 @@
             <div class="login-box-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form action="/users/progress/login" method="post">
+                <form action="/member/progress/login" method="post">
                     <div class="form-group has-feedback">
                         <input type="email" class="form-control" placeholder="Email" name="email">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -34,7 +34,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-xs-4">
-                            <button type="button" class="btn btn-primary btn-block btn-flat" id="login" name="login">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -50,13 +50,13 @@
                 <!-- /.social-auth-links -->
 
                 <a href="#">I forgot my password</a><br>
-                <a href="/users/registe" class="text-center">Register a new membership</a>
+                <a href="/member/registe" class="text-center">Register a new membership</a>
 
             </div>
             <!-- /.login-box-body -->
         </div>
         <!-- /.login-box -->
-        <% include ../../partials/footer_javascript.ejs %>
+        <% include ../../../partials/footer_javascript.ejs %>
         <script>
             $(function() {
                 $('input').iCheck({
@@ -64,12 +64,8 @@
                     radioClass: 'iradio_square-blue',
                     increaseArea: '20%' // optional
                 });
-                $('#login').click(function(){
-
-                })
             });
         </script>
-    
     </body>
 </html>
 

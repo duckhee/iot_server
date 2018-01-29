@@ -17,10 +17,19 @@ module.exports = {
             writer: {
                 type: Sequelize.STRING,
                 allowNull: false,
+<<<<<<< HEAD
                 references:{
                     model:'users',
                     key:'user_id'
                 }
+=======
+                references: {
+                    model: 'users',
+                    key: 'userid'
+                },
+                onDelete: 'CASCADE',
+
+>>>>>>> origin/merge_development
             },
             viewcnt: {
                 type: Sequelize.INTEGER,

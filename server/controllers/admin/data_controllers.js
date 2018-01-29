@@ -15,17 +15,14 @@ exports.data_insert = function(data_info, callback) {
             }
         }]
         */
-    }).spread(function(data, created) {
-        if (created) {
-            //created user callback baloon
-            callback(created, null, null);
-        } else {
-            //find user
-            callback(null, data.dataValues, null);
-        }
+    }).then(function(row) {
+        console.log('success');
+        console.log('data create : ', row);
+        callback(row, null);
     }).catch(function(err) {
-        console.log('error');
-        callback(null, null, err);
+        console.log('failed...');
+        console.log('create error : ', err);
+        callback(null, err);
     });
 };
 

@@ -5,16 +5,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // var sassMiddleware = require('node-sass-middleware');
-//var passport = require('passport');
+var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var session = require('express-session');
-
+var flash = require('connect-flash');
 //router
 var index = require('./server/routes/index');
 var users = require('./server/routes/users');
 var boarders = require('./server/routes/boarder');
 var devices = require('./server/routes/device');
 var datas = require('./server/routes/data');
+var ajax = require('./server/routes/ajax_router');
+var insert_data = require('./server/routes/insert_data');
 
 //testing page router
 var testing = require('./server/routes/test_router');
@@ -50,11 +52,11 @@ app.use(session({
 }));
 
 //passport initialize
-//app.use(passport.initialize());
+app.use(passport.initialize());
 //login section foreever
-//app.use(passport.session());
+app.use(passport.session());
 //flash message 
-//app.use(flash());
+app.use(flash());
 
 //public file url /static
 app.use('/static', express.static(path.join(__dirname, 'public')));
@@ -66,12 +68,16 @@ app.use('/upload', express.static(path.join(__dirname, 'upload')));
 app.use('/download', express.static(path.join(__dirname, 'download')));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/users', users(passport));
 app.use('/boards', boarders);
 app.use('/device', devices);
 app.use('/data', datas);
+app.use('/get', ajax);
+app.use('/insert', insert_data);
 //test router
 app.use('/test', testing);
+
+
 
 
 //testing router (passport)

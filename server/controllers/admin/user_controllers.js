@@ -8,37 +8,35 @@ var bCrypt = require('bcrypt-nodejs');
     modify user
     select user
 */
-
-
 //insert user
 exports.insert_user = function(user_info, callback) {
-        models.user.create({
-            userid: user_info.userid,
-            password: user_info.password,
-            username: user_info.username,
-            userage: user_info.userage,
-            user_address1: user_info.user_address1,
-            user_address2: user_info.user_address2,
-            zip_code: user_info.zip_code,
-            user_phone1: user_info.user_phone1,
-            user_phone2: user_info.user_phone2,
-            user_phone3: user_info.user_phone3,
-            apikey: user_info.apikey
-        }).then(function(row) {
-            console.log('success');
-            callback(row, null);
-        }).catch(function(err) {
-            console.log('error');
-            callback(null, err);
-        })
-    }
-    //create user
+    models.user.create({
+        userid: user_info.userid,
+        password: user_info.password,
+        username: user_info.username,
+        userage: user_info.userage,
+        user_address1: user_info.user_address1,
+        user_address2: user_info.user_address2,
+        zip_code: user_info.zip_code,
+        user_phone1: user_info.user_phone1,
+        user_phone2: user_info.user_phone2,
+        user_phone3: user_info.user_phone3,
+        apikey: user_info.apikey
+    }).then(function(row) {
+        console.log('success');
+        callback(row, null);
+    }).catch(function(err) {
+        console.log('error');
+        callback(null, err);
+    });
+}
+
+
+
+//create user
 exports.create_user = function(user_info, callback) {
 
     models.user.findOrCreate({
-        where: {
-            userid: user_info.userid
-        },
         defaults: {
             password: user_info.password,
             username: user_info.username,
@@ -52,7 +50,11 @@ exports.create_user = function(user_info, callback) {
             user_phone2: user_info.user_phone2,
             user_phone3: user_info.user_phone3,
             apikey: user_info.apikey
-        }
+        },
+        where: {
+            userid: user_info.userid,
+
+        },
     }).spread(function(user, created) {
         if (created) {
             //created user callback baloon
@@ -126,31 +128,3 @@ exports.destory_user = function(user_info, callback) {
         callback(null, err);
     });
 };
-
-//check id
-exports.check_id = function(user_info, callback) {
-    models.user.findAll({
-        where: {
-            userid: user_info.id
-        }
-    }).then(function(row) {
-        callback(row, null);
-    }).catch(function(err) {
-        console.log(err);
-        callback(null, err);
-    })
-};
-
-//login user
-exports.login = function(user_info, callback) {
-    module.user.findOne({
-        where: {
-            userid: user_info.userid,
-            password: user_info.password
-        }
-    }).then(function(row) {
-
-    }).catch(function(err) {
-        callback(null, err);
-    })
-}

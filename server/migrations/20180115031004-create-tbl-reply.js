@@ -10,19 +10,28 @@ module.exports = {
             },
             bno: {
                 type: Sequelize.INTEGER,
-                allowNull:false,
-                references:{
-                    model:'tbl_boards',
-                    key:'id'
-                }
+                allowNull: false,
+                references: {
+                    model: 'tbl_boards',
+                    key: 'id'
+                },
+                onDelete: 'CASCADE',
             },
             rwriter: {
                 type: Sequelize.STRING,
                 allowNull: false,
+<<<<<<< HEAD
                 references:{
                     model:'tbl_boards',
                     key:'writer'
                 }
+=======
+                references: {
+                    model: 'users',
+                    key: 'userid'
+                },
+                onDelete: 'CASCADE',
+>>>>>>> origin/merge_development
             },
             rcontent: {
                 type: Sequelize.TEXT

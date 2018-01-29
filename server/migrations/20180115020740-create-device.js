@@ -9,17 +9,19 @@ module.exports = {
                 type: Sequelize.INTEGER
             },
             device_name: {
-                type: Sequelize.STRING
+                type: Sequelize.STRING,
             },
             device_num: {
                 type: Sequelize.INTEGER
             },
             device_apikey: {
                 type: Sequelize.STRING,
+                allowNull: false,
                 references: {
                     model: 'users',
                     key: 'apikey'
-                }
+                },
+                onDelete: 'CASCADE',
             },
             createdAt: {
                 allowNull: false,

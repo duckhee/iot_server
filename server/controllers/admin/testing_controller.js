@@ -9,16 +9,11 @@ exports.testing_insert = function(testing_info, callback) {
         defaults: {
             test: testing_info.test
         }
-    }).spread(function(user, created) {
-        if (created) {
-            //created user callback baloon
-            callback(created, null, null);
-        } else {
-            //find user
-            callback(null, user.dataValues, null);
-        }
+    }).then(function(row) {
+        console.log(row);
+        callback(row, null);
     }).catch(function(err) {
-        console.log('error');
-        callback(null, null, err);
+        console.log(err);
+        callback(null, err);
     });
 };
