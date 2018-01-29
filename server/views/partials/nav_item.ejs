@@ -22,6 +22,24 @@
         <ul class="treeview-menu">
             <li><a href="/device/registe"><i class="fa fa-circle-o"></i>devices registe</a></li>
             <li><a href="/device"><i class="fa fa-circle-o"></i>devices list</a></li>
+<!--             
+            <%
+            if (locals.devices) {                     
+                var myObj = JSON.parse(devices);                
+                
+                for(var i=0; i < myObj.length; i++){ 
+                    var class_active = "";
+                    if( channel == myObj[i].field_id ){
+                        class_active = "active";
+                    }
+        %>
+          <li class="<%=class_active %>">
+              <a href="/test?channel=<%=myObj[i].field_id%>"><i class="fa fa-circle-o"></i>device<%=myObj[i].field_id%></a>
+          </li>
+        <%      } 
+            }
+        %> -->
+
             <li><a href="/data"><i class="fa fa-circle-o"></i>show detail</a></li>
             <li><a href="/data/chart"><i class="fa fa-circle-o"></i>show chart</a></li>
             <li><a href="/data/data"><i class="fa fa-circle-o"></i>show data</a></li>
