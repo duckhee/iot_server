@@ -109,21 +109,13 @@ router.post('/ajaxdata', function(req, res, next) {
     var apikey = req.query.apikey || req.params.apikey || req.body.apikey;
 });
 //get all data ajax
-<<<<<<< HEAD
 router.get('/ajax_all_data', function(req, res, next){
-=======
-router.get('/ajax_all_data', function(req, res, next) {
->>>>>>> origin/merge_development
     var user_id = req.query.user_id || req.params.user_id || req.body.user_id;
     var apikey = req.query.apikey || req.params.apikey || req.body.apikey;
 
 });
 
-<<<<<<< HEAD
 router.post('/ajax_all_data', function(req, res, next){
-=======
-router.post('/ajax_all_data', function(req, res, next) {
->>>>>>> origin/merge_development
     var user_id = req.query.user_id || req.params.user_id || req.body.user_id;
     var apikey = req.query.apikey || req.params.apikey || req.body.apikey;
 });
@@ -140,20 +132,12 @@ router.post('/ajaximages', function(req, res, next) {
 });
 
 //sequelize get all images
-<<<<<<< HEAD
 router.get('/ajax_all_images', function(req, res, next){
-=======
-router.get('/ajax_all_images', function(req, res, next) {
->>>>>>> origin/merge_development
     var user_id = req.query.user_id || req.params.user_id || req.body.user_id;
     var apikey = req.query.apikey || req.params.apikey || req.body.apikey;
 });
 
-<<<<<<< HEAD
 router.post('/ajax_all_images', function(req, res, next){
-=======
-router.post('/ajax_all_images', function(req, res, next) {
->>>>>>> origin/merge_development
     var user_id = req.query.user_id || req.params.user_id || req.body.user_id;
     var apikey = req.query.apikey || req.params.apikey || req.body.apikey;
 });

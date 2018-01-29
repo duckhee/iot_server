@@ -12,7 +12,7 @@ var flash = require('connect-flash');
 var socketIo = require('socket.io');
 //카메라 사진 저장
 var io = socketIo.listen(5001); // 이미지 저장관련 소켓
-var dl = require('delivery');   //이미지 전달 모듈
+//var dl = require('delivery');   //이미지 전달 모  듈
 var moment = require('moment'); //시간 모듈
 var fs = require('fs');
 //router
