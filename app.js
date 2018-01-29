@@ -9,6 +9,11 @@ var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var session = require('express-session');
 var flash = require('connect-flash');
+var socketIo = require('socket.io');
+//카메라 사진 저장
+var io = socketIo.listen(5001); // 이미지 저장관련 소켓
+var dl = require('delivery');   //이미지 전달 모듈
+var moment = require('moment'); //시간 모듈
 //router
 var index = require('./server/routes/index');
 var users = require('./server/routes/users');
@@ -20,6 +25,106 @@ var insert_data = require('./server/routes/insert_data');
 
 //testing page router
 var testing = require('./server/routes/test_router');
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+io.sockets.on('connection', function (socket) {
+    console.log('io sockets on connection');
+    
+    var delivery = dl.listen(socket);
+
+    delivery.on('receive.success', function (file) {
+        //채널별 폴더유무 체크
+        console.log("delivery on");
+        var params = file.params;
+        var date_folder = moment().format('YYYYMMDD');
+
+        //일별 폴더 유무 체크
+        fs.exists( process.cwd() + '/camera_images/' + params.channel + "/" + date_folder, function(exists){
+            console.log(exists);
+            if(!exists){
+                //채널 폴더 유무 체크
+                fs.exists( process.cwd() + '/camera_images/' + params.channel , function (exists) {
+                    if (!exists) {
+                        fs.mkdir(process.cwd() + '/camera_images/' + params.channel , '0777', function (err) {
+                            if (err) {
+                            console.log('mkdir first error');
+                            throw err;
+                            }
+                            console.log('dir channel writed');
+                        });
+                    }
+                        fs.mkdir( process.cwd() + '/camera_images/' + params.channel + '/' + date_folder, '0777', function(err){
+                                if(err){
+                                    console.log('mkdir seconde err');
+                                    console.log(err.stack);
+                                    throw err;
+                                    }else{
+                                    console.log('dir data writed');
+                                    }
+              
+                                    });
+
+                    
+                });
+                
+                //일별 폴더 유무 체크
+                //fs.mkdir('./camera_images/' + params.channel + "/" + date_folder, '0777', function(err){ 
+                   // if(err) {
+                   // console.log('mkdir second err');
+                   // console.log(err.stack);
+                   // throw err;
+                 //   }
+               //    console.log('dir date writed');                     
+             //   });
+            } 
+
+            //이미지일 경우만 저장
+            console.log("image test start");
+            console.log('folder:'+date_folder+', img name:'+ params.img_name);
+            fs.writeFile( process.cwd() + '/camera_images/' + params.channel + "/" + date_folder + "/" + params.img_name, file.buffer, function (err) {
+                if (err) {
+                    console.log('File could not be saved: ' + err);
+                } else {
+                var camera_info = {};
+                camera_info = {"field_id":params.channel,"folder_path":date_folder,"img_name":params.img_name};
+                    cameraControllers.insert_picture(camera_info, function(err, row){
+                            if(err){
+                                console.log(err.stack);
+                            }else if(row){
+                                //console.log(row);
+                            }else{
+                                console.log('error');
+                            }
+                    });
+                    console.log('File ' + params.img_name + " saved");
+                };
+            });
+            
+        });
+        
+
+        
+    });
+
+    socket.on('disconnect', function(){
+		console.log('user disconnected');
+	});
+
+	socket.on('chat', function(data){
+		console.log('send: ' + data.shooting_time + "/" + data.field_id);
+		io.emit(data.field_id, data.shooting_time);
+	});
+
+    socket.on('shoot', function(data){
+        console.log('send: ' + data.cmd + "/" + data.field_id);
+		io.emit(data.field_id, data.cmd);
+    });
+});
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 var app = express();
