@@ -14,6 +14,7 @@ var socketIo = require('socket.io');
 var io = socketIo.listen(5001); // 이미지 저장관련 소켓
 var dl = require('delivery');   //이미지 전달 모듈
 var moment = require('moment'); //시간 모듈
+var fs = require('fs');
 //router
 var index = require('./server/routes/index');
 var users = require('./server/routes/users');
