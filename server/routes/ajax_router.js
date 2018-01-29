@@ -2,9 +2,6 @@ var express = require('express');
 var router = express.Router();
 var data_controllers = require('../controllers/data_controllers');
 var device_controllers = require('../controllers/device_controller');
-<<<<<<< HEAD
-var ajax_controllers = require('../controllers/ajax_controllers');
-=======
 var user_controllers = require('../controllers/user_controllers');
 
 //null checking
@@ -43,7 +40,6 @@ router.get('/ajaxid', function(req, res, next) {
         res.json('checkking');
     }
 });
->>>>>>> origin/merge_development
 
 //sequelize get 
 router.get('/ajax', function(req, res, next) {
