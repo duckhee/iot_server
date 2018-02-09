@@ -1,6 +1,6 @@
 'use strict';
 
-var bcrypt = require('bcrypt-nodejs');
+`   `
 
 module.exports = function(sequelize, DataTypes) {
     var user = sequelize.define('user', {
@@ -14,13 +14,27 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        username: DataTypes.STRING,
-        userage: DataTypes.INTEGER,
-        user_email: DataTypes.STRING,
-        user_country: DataTypes.STRING,
-        user_address1: DataTypes.STRING,
-        user_address2: DataTypes.STRING,
-        zip_code: DataTypes.STRING,
+        username: {
+            type: DataTypes.STRING,
+        },
+        userage: {
+            type: DataTypes.INTEGER,
+        },
+        user_email: {
+            type: DataTypes.STRING,
+        },
+        user_country: {
+            type: DataTypes.STRING,
+        },
+        user_address1: {
+            type: DataTypes.STRING,
+        },
+        user_address2: {
+            type: DataTypes.STRING,
+        },
+        zip_code: {
+            type: DataTypes.STRING,
+        },
         user_phone1: {
             type: DataTypes.STRING,
             allowNull: false,
