@@ -13,7 +13,7 @@
             </div>
             <div class="register-box-body">
                 <p class="login-box-msg">Register a new membership</p>
-                <form action="/users/registe" method="post">
+                <form name = "regist_form" action="" method="">
                     <div class="form-group has-feedback">
                         <input type="text" class="form-control" placeholder="input id" name="id">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -300,7 +300,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+                            <button type="submit" name = "regist_in" class="btn btn-primary btn-block btn-flat">Register</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -509,7 +509,7 @@
 					
 				} else {
 					alert("회원 가입을 하였습니다.");
-					document.regist_form.action = "regist";
+					document.regist_form.action = "/users/registe";
 					document.regist_form.method = "POST";
 					document.regist_form.submit();
 				}
