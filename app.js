@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var bcrypt = require('bcrypt-nodejs');
 var session = require('express-session');
-
+var flash = require('connect-flash');
 //router
 var index = require('./server/routes/index');
 var users = require('./server/routes/users');
@@ -19,7 +19,7 @@ var ajax = require('./server/routes/ajax_router');
 var insert_data = require('./server/routes/insert_data');
 
 //testing page router
-var testing = require('./server//routes/test_router');
+var testing = require('./server/routes/test_router');
 
 
 var app = express();
@@ -56,7 +56,7 @@ app.use(passport.initialize());
 //login section foreever
 app.use(passport.session());
 //flash message 
-//app.use(flash());
+app.use(flash());
 
 //public file url /static
 app.use('/static', express.static(path.join(__dirname, 'public')));
